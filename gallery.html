@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery — Legacy of Mind</title>
+    <meta name="description" content="Screenshots and artwork from Legacy of Mind.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        #gallery-main {
+            padding: 10rem 3rem 8rem;
+        }
+
+        .gallery-header {
+            max-width: 1200px; margin: 0 auto 5rem;
+            display: flex; align-items: flex-end;
+            justify-content: space-between; flex-wrap: wrap; gap: 2rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gallery-title {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: clamp(3rem, 8vw, 7rem);
+            color: var(--khaki-pale);
+            line-height: 0.9;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            opacity: 0; animation: fadeUp 1.2s 0.3s ease forwards;
+        }
+
+        .gallery-sub {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            color: var(--khaki-dim); font-size: 1rem;
+            max-width: 320px; line-height: 1.8; text-align: right;
+            opacity: 0; animation: fadeUp 1.2s 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Filter tabs */
+        .gallery-filters {
+            max-width: 1200px; margin: 0 auto 3rem;
+            display: flex; gap: 0; flex-wrap: wrap;
+            border: 1px solid var(--border);
+            width: fit-content;
+            opacity: 0; animation: fadeUp 1s 0.7s ease forwards;
+        }
+
+        .filter-btn {
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem; letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--khaki-dim);
+            background: none; border: none;
+            padding: 0.7rem 1.8rem;
+            border-right: 1px solid var(--border);
+            cursor: pointer; transition: color 0.3s, background 0.3s;
+        }
+        .filter-btn:last-child { border-right: none; }
+        .filter-btn:hover { color: var(--khaki); background: rgba(255,255,255,0.01); }
+        .filter-btn.active { color: var(--khaki); background: rgba(176,160,112,0.05); }
+
+        /* Masonry-style grid */
+        .gallery-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .gallery-item {
+            position: relative; overflow: hidden;
+            cursor: pointer;
+            background: var(--panel);
+        }
+
+        .gallery-item:nth-child(7n+1) { grid-column: span 2; aspect-ratio: 32/10; }
+        .gallery-item:not(:nth-child(7n+1)) { aspect-ratio: 16/10; }
+
+        .gallery-item-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease, filter 0.4s;
+            filter: brightness(0.8) saturate(0.7);
+        }
+
+        .gallery-item:hover .gallery-item-img {
+            transform: scale(1.04);
+            filter: brightness(0.9) saturate(0.85);
+        }
+
+        /* Placeholder state */
+        .gallery-placeholder {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 1rem;
+            position: relative;
+        }
+        .gallery-placeholder::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent, transparent 12px,
+                rgba(30,28,20,0.5) 12px, rgba(30,28,20,0.5) 13px
+            );
+        }
+        .placeholder-arch {
+            width: 30px; height: 40px;
+            border: 1px solid var(--border-mid);
+            border-radius: 15px 15px 0 0;
+            position: relative; z-index: 1;
+            opacity: 0.4;
+        }
+        .placeholder-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.45rem; letter-spacing: 0.4em;
+            text-transform: uppercase; color: var(--border-warm);
+            position: relative; z-index: 1;
+        }
+
+        /* Hover overlay */
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(6,5,4,0.85) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.4s;
+            display: flex; align-items: flex-end;
+            padding: 1.5rem;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-item-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.5rem; letter-spacing: 0.35em;
+            text-transform: uppercase; color: var(--khaki-dim);
+        }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(6,5,4,0.96);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        #lightbox.open { opacity: 1; pointer-events: all; }
+
+        .lb-img {
+            max-width: 90vw; max-height: 85vh;
+            object-fit: contain;
+            border: 1px solid var(--border);
+        }
+
+        .lb-close {
+            position: absolute; top: 2rem; right: 2rem;
+            background: none; border: 1px solid var(--border);
+            color: var(--khaki-dim); font-size: 1rem;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: color 0.3s, border-color 0.3s;
+        }
+        .lb-close:hover { color: var(--khaki); border-color: var(--border-warm); }
+
+        .lb-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: none; border: 1px solid var(--border);
+            color: var(--khaki-dim);
+            width: 44px; height: 80px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: color 0.3s, border-color 0.3s;
+            font-size: 1.2rem;
+        }
+        .lb-nav:hover { color: var(--khaki); border-color: var(--border-warm); }
+        .lb-prev { left: 2rem; }
+        .lb-next { right: 2rem; }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            #gallery-main { padding: 8rem 1.5rem 6rem; }
+            .gallery-grid { grid-template-columns: repeat(2,1fr); }
+            .gallery-item:nth-child(7n+1) { grid-column: span 1; aspect-ratio: 16/10; }
+            .gallery-header { flex-direction: column; }
+            .gallery-sub { text-align: left; }
+        }
+        @media (max-width: 560px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="embers"></canvas>
+<nav id="main-nav"></nav>
+
+<main id="gallery-main">
+    <div class="gallery-header">
+        <div>
+            <span style="font-family:'Cinzel',serif;font-size:0.52rem;letter-spacing:0.65em;text-transform:uppercase;color:var(--teal-light);display:block;margin-bottom:1.2rem;">Screenshots & Art</span>
+            <h1 class="gallery-title">Gallery</h1>
+        </div>
+        <p class="gallery-sub">A glimpse into the world of Legacy of Mind. More will follow.</p>
+    </div>
+
+    <div class="gallery-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Screenshots</button>
+        <button class="filter-btn">Environments</button>
+        <button class="filter-btn">Art</button>
+    </div>
+
+    <div class="gallery-grid">
+        <!-- 12 placeholder slots — swap src for real screenshots when ready -->
+        <div class="gallery-item reveal" data-index="0">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 01</span></div>
+        </div>
+        <div class="gallery-item reveal d1" data-index="1">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 02</span></div>
+        </div>
+        <div class="gallery-item reveal d2" data-index="2">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 03</span></div>
+        </div>
+        <div class="gallery-item reveal" data-index="3">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 04</span></div>
+        </div>
+        <div class="gallery-item reveal d1" data-index="4">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 05</span></div>
+        </div>
+        <div class="gallery-item reveal d2" data-index="5">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 06</span></div>
+        </div>
+        <div class="gallery-item reveal" data-index="6">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 07</span></div>
+        </div>
+        <div class="gallery-item reveal d1" data-index="7">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 08</span></div>
+        </div>
+        <div class="gallery-item reveal d2" data-index="8">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 09</span></div>
+        </div>
+        <div class="gallery-item reveal" data-index="9">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 10</span></div>
+        </div>
+        <div class="gallery-item reveal d1" data-index="10">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 11</span></div>
+        </div>
+        <div class="gallery-item reveal d2" data-index="11">
+            <div class="gallery-placeholder">
+                <div class="placeholder-arch"></div>
+                <span class="placeholder-label">Coming Soon</span>
+            </div>
+            <div class="gallery-overlay"><span class="gallery-item-label">Screenshot 12</span></div>
+        </div>
+    </div>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <button class="lb-close">✕</button>
+    <button class="lb-nav lb-prev">‹</button>
+    <img class="lb-img" src="" alt="">
+    <button class="lb-nav lb-next">›</button>
+</div>
+
+<footer id="main-footer"></footer>
+
+<script src="nav.js"></script>
+<script>
+injectNav('gallery.html');
+injectFooter();
+window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Filter tabs (visual only for now)
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+// Embers
+(function(){
+    const c = document.getElementById('embers');
+    const ctx = c.getContext('2d');
+    let W, H, pts = [];
+    function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+    resize(); addEventListener('resize', resize);
+    const cols = ['rgba(212,144,40,V)','rgba(180,80,24,V)','rgba(58,144,104,V)','rgba(160,120,60,V)'];
+    function mk(){
+        return {
+            x: Math.random() < 0.5 ? Math.random()*W*0.3 : W - Math.random()*W*0.3,
+            y: H + 8, vx: (Math.random()-0.5)*0.5,
+            vy: -(Math.random()*0.9+0.3),
+            life: 1, decay: Math.random()*0.004+0.002,
+            r: Math.random()*1.5+0.3,
+            col: cols[Math.floor(Math.random()*cols.length)],
+            w: Math.random()*Math.PI*2, ws: (Math.random()-0.5)*0.03
+        };
+    }
+    for(let i=0;i<30;i++){ const p=mk(); p.y=Math.random()*H; p.life=Math.random(); pts.push(p); }
+    function tick(){
+        ctx.clearRect(0,0,W,H);
+        if(Math.random()<0.22) pts.push(mk());
+        pts = pts.filter(p=>p.life>0);
+        pts.forEach(p=>{
+            p.w+=p.ws; p.x+=p.vx+Math.sin(p.w)*0.25; p.y+=p.vy; p.life-=p.decay;
+            ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+            ctx.fillStyle = p.col.replace('V',(p.life*0.4).toFixed(3));
+            ctx.fill();
+        });
+        requestAnimationFrame(tick);
+    }
+    tick();
+})();
+
+const obs = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
+},{ threshold:0.05, rootMargin:'0px 0px -20px 0px' });
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
