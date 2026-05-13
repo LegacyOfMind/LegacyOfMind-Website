@@ -7,8 +7,8 @@ import { siteLinks } from '../data/siteLinks';
 
 const steps = [
   'Join Discord',
-  'Submit Form',
   'Request Access',
+  'Introduce Yourself',
 ];
 
 const discordFeatures = [
@@ -57,7 +57,7 @@ const reasons = [
   },
   {
     icon: UserRound,
-    text: 'Your clips, reactions, and best moments can be featured on the website and official channels with credit.',
+    text: 'Your clips, reactions, and best moments can be featured on the official social channels with credit.',
   },
 ];
 
@@ -112,7 +112,7 @@ export function ClosedBeta() {
       />
 
       <section className="mx-auto max-w-7xl px-4 py-16 lg:px-6">
-        <SectionTitle eyebrow="Simple Access" title="How to get access" text="Choose how you'd like to join: come through Discord or submit the form, then request access." />
+        <SectionTitle eyebrow="Simple Access" title="How to get access" text="Join the Discord, request Closed Beta access, and introduce yourself to the community." />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {steps.map((step, index) => (
             <article key={step} className="border border-border bg-black/36 p-6 transition duration-300 hover:-translate-y-1 hover:border-stone/30 hover:bg-white/[0.035]">
@@ -122,7 +122,7 @@ export function ClosedBeta() {
           ))}
         </div>
         <p className="mt-7 max-w-3xl text-base leading-8 text-muted">
-          Getting access is simple and completely free. Join through Discord or submit the form, and you are in the right place to take your first step into Legacy of Mind before release.
+          Getting access is simple and completely free. Join through Discord and you are in the right place to take your first step into Legacy of Mind before release.
         </p>
       </section>
 
@@ -141,7 +141,7 @@ export function ClosedBeta() {
       <InfoSection
         eyebrow="Creators"
         title="For content creators"
-        text="Closed Beta is especially useful for creators who want early footage from a dark first-person soulslike. Clips, streams, shorts, reactions, and videos from beta players may be featured on the Legacy of Mind website, YouTube, TikTok, and Instagram."
+        text="Closed Beta is especially useful for creators who want early footage from a dark first-person soulslike. Clips, streams, shorts, reactions, and videos from beta players may be featured across YouTube, TikTok, and Instagram."
       />
       <InfoSection
         eyebrow="Development"

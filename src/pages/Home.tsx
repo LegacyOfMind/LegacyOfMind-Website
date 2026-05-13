@@ -1,14 +1,34 @@
 import { motion } from 'framer-motion';
-import { KeyRound } from 'lucide-react';
-import { ClipCard } from '../components/ClipCard';
+import { Instagram, KeyRound, Youtube } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
 import { DiscordIcon } from '../components/DiscordIcon';
 import { Hero } from '../components/Hero';
 import { NightmareSection } from '../components/NightmareSection';
+import { TikTokIcon } from '../components/PlatformIcons';
 import { SectionTitle } from '../components/SectionTitle';
-import { clips } from '../data/clips';
 import { nightmareSections } from '../data/nightmareSections';
 import { siteLinks } from '../data/siteLinks';
+
+const creatorChannels = [
+  {
+    label: 'TikTok',
+    href: siteLinks.tiktok,
+    icon: TikTokIcon,
+    variant: 'tiktok',
+  },
+  {
+    label: 'YouTube',
+    href: siteLinks.youtube,
+    icon: Youtube,
+    variant: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    href: siteLinks.instagram,
+    icon: Instagram,
+    variant: 'instagram',
+  },
+] as const;
 
 export function Home() {
   return (
@@ -52,10 +72,16 @@ export function Home() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-20 lg:px-6">
-          <SectionTitle eyebrow="Featured Soon" title="Creator Clips Coming Soon..." text="Selected reactions, close escapes, boss attempts, and development updates may be shared across the official channels." />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {clips.slice(0, 4).map((clip) => (
-              <ClipCard key={clip.title} clip={clip} />
+          <SectionTitle
+            eyebrow="Featured Soon"
+            title="Creator Clips Coming Soon..."
+            text="Creator clips, reactions, boss attempts, and development updates will be posted across the official Legacy of Mind social channels."
+          />
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            {creatorChannels.map(({ label, href, icon, variant }) => (
+              <CTAButton key={label} href={href} external variant={variant} icon={icon} className="w-full sm:w-auto">
+                {label}
+              </CTAButton>
             ))}
           </div>
         </section>

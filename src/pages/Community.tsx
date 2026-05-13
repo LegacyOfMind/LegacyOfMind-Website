@@ -1,12 +1,31 @@
-import { UploadCloud } from 'lucide-react';
-import { ClipCard } from '../components/ClipCard';
+import { Instagram, Youtube } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
 import { DiscordIcon } from '../components/DiscordIcon';
 import { Leaderboard } from '../components/Leaderboard';
+import { TikTokIcon } from '../components/PlatformIcons';
 import { SectionTitle } from '../components/SectionTitle';
-import { SubmitClipForm } from '../components/SubmitClipForm';
-import { clips } from '../data/clips';
 import { siteLinks } from '../data/siteLinks';
+
+const creatorChannels = [
+  {
+    label: 'TikTok',
+    href: siteLinks.tiktok,
+    icon: TikTokIcon,
+    variant: 'tiktok',
+  },
+  {
+    label: 'YouTube',
+    href: siteLinks.youtube,
+    icon: Youtube,
+    variant: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    href: siteLinks.instagram,
+    icon: Instagram,
+    variant: 'instagram',
+  },
+] as const;
 
 export function Community() {
   return (
@@ -20,7 +39,7 @@ export function Community() {
           Fastest survivors. Best clips. The players and creators stepping into the first-person soulslike world early.
         </p>
         <p className="mx-auto mt-7 max-w-4xl leading-8 text-muted">
-          Community clips may be featured on this page and across official Legacy of Mind channels. Every featured clip will credit the streamer or creator who submitted it, including a link of their choice.
+          Community clips may be featured across official Legacy of Mind channels. Every featured clip will credit the streamer or creator who shared it through Discord.
         </p>
       </section>
 
@@ -29,12 +48,14 @@ export function Community() {
       <section className="mx-auto max-w-7xl px-4 py-16 lg:px-6">
         <SectionTitle
           eyebrow="Featured Clips"
-          title="Clips of the Week"
-          text="Featured clips will include a credit link for the streamer or content creator who submitted them."
+          title="Watch clips on the official channels"
+          text="Creator clips, reactions, boss attempts, and short development updates will be posted across the official Legacy of Mind social channels."
         />
-        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {clips.map((clip) => (
-            <ClipCard key={clip.title} clip={clip} />
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          {creatorChannels.map(({ label, href, icon, variant }) => (
+            <CTAButton key={label} href={href} external variant={variant} icon={icon} className="w-full sm:w-auto">
+              {label}
+            </CTAButton>
           ))}
         </div>
       </section>
@@ -43,24 +64,14 @@ export function Community() {
         <div className="border border-border bg-black/36 p-6 transition duration-300 hover:border-stone/30 hover:bg-white/[0.035] md:p-8">
           <SectionTitle
             eyebrow="Submit"
-            title="Share your best Legacy of Mind clips"
-            text="Submit anything worth sharing: a close escape, a funny death, a boss attempt, a strange discovery, a reaction, or a moment you think other players would enjoy. Featured clips can appear on the website and official channels with credit."
+            title="Share clips through Discord"
+            text="Send close escapes, funny deaths, boss attempts, strange discoveries, reactions, or moments worth sharing directly through the Legacy of Mind Discord."
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon}>Submit Through Discord</CTAButton>
-            <button
-              type="button"
-              onClick={() => document.getElementById('submit-clip-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              className="group inline-flex min-h-12 items-center justify-center gap-2.5 border border-stone/35 bg-white/[0.03] px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-stone shadow-[0_0_28px_rgba(217,215,204,0.06)] transition duration-300 hover:-translate-y-0.5 hover:border-stone/70 hover:bg-white/[0.08] hover:shadow-[0_0_36px_rgba(217,215,204,0.12)]"
-            >
-              <UploadCloud aria-hidden="true" className="h-4 w-4 transition group-hover:-translate-y-0.5" />
-              Submit Clip
-            </button>
           </div>
         </div>
       </section>
-
-      <SubmitClipForm />
     </main>
   );
 }
