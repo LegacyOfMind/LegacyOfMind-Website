@@ -1,5 +1,7 @@
+import { UploadCloud } from 'lucide-react';
 import { ClipCard } from '../components/ClipCard';
 import { CTAButton } from '../components/CTAButton';
+import { DiscordIcon } from '../components/DiscordIcon';
 import { Leaderboard } from '../components/Leaderboard';
 import { SectionTitle } from '../components/SectionTitle';
 import { SubmitClipForm } from '../components/SubmitClipForm';
@@ -45,12 +47,13 @@ export function Community() {
             text="Submit anything worth sharing: a close escape, a funny death, a boss attempt, a strange discovery, a reaction, or a moment you think other players would enjoy. Featured clips can appear on the website and official channels with credit."
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <CTAButton href={siteLinks.discord} external>Submit Through Discord</CTAButton>
+            <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon}>Submit Through Discord</CTAButton>
             <button
               type="button"
               onClick={() => document.getElementById('submit-clip-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              className="inline-flex min-h-12 items-center justify-center border border-stone/35 bg-white/[0.03] px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-stone transition duration-300 hover:border-stone/70 hover:bg-white/[0.08]"
+              className="group inline-flex min-h-12 items-center justify-center gap-2.5 border border-stone/35 bg-white/[0.03] px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-stone shadow-[0_0_28px_rgba(217,215,204,0.06)] transition duration-300 hover:-translate-y-0.5 hover:border-stone/70 hover:bg-white/[0.08] hover:shadow-[0_0_36px_rgba(217,215,204,0.12)]"
             >
+              <UploadCloud aria-hidden="true" className="h-4 w-4 transition group-hover:-translate-y-0.5" />
               Submit Clip
             </button>
           </div>

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { navLinks, siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
+import { DiscordIcon } from './DiscordIcon';
+import { SteamIcon } from './PlatformIcons';
 import { SocialLinks } from './SocialLinks';
 
 export function Footer() {
@@ -11,10 +13,10 @@ export function Footer() {
           <img src="/assets/logos/LoM Text Logo.png" alt="Legacy of Mind" className="h-auto w-64 max-w-full object-contain" />
           <p className="mt-5 max-w-sm text-muted">Survive the nightmares that learned to hunt.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <CTAButton href={siteLinks.steam} external className="min-h-10 px-4 py-2 text-xs">
-              Wishlist Now
+            <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="min-h-10 px-4 py-2 text-xs">
+              Wishlist on Steam
             </CTAButton>
-            <CTAButton href={siteLinks.discord} external variant="secondary" className="min-h-10 px-4 py-2 text-xs">
+            <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon} className="min-h-10 px-4 py-2 text-xs">
               Join Discord
             </CTAButton>
           </div>

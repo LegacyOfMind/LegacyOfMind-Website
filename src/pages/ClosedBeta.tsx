@@ -1,5 +1,7 @@
-import { Gamepad2, MessageCircle, Sparkles, UserRound, Video, Wrench } from 'lucide-react';
+import { Gamepad2, KeyRound, Lightbulb, MessageCircle, Sparkles, UserRound, UsersRound, Video, Wrench } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
+import { DiscordIcon } from '../components/DiscordIcon';
+import { SteamIcon } from '../components/PlatformIcons';
 import { SectionTitle } from '../components/SectionTitle';
 import { siteLinks } from '../data/siteLinks';
 
@@ -7,6 +9,29 @@ const steps = [
   'Join Discord',
   'Submit Form',
   'Request Access',
+];
+
+const discordFeatures = [
+  {
+    icon: KeyRound,
+    title: 'Closed Beta Access',
+    text: 'Join the server to request early access and follow the next steps before release.',
+  },
+  {
+    icon: Video,
+    title: 'Clips & Community',
+    text: 'Share reactions, funny deaths, boss attempts, discoveries, and moments worth showing.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Game Dev Advice',
+    text: 'Ask questions about Unity, Steam pages, trailers, marketing, or your own indie game.',
+  },
+  {
+    icon: UsersRound,
+    title: 'Indie Game Talk',
+    text: 'Talk with players, creators, and devs who enjoy soulslikes, horror, and indie projects.',
+  },
 ];
 
 const reasons = [
@@ -48,23 +73,30 @@ export function ClosedBeta() {
           Step into the barren world of Legacy of Mind before release. Share honest thoughts, capture early footage, and help sharpen the experience before launch.
         </p>
         <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-          <CTAButton href={siteLinks.discord} external>
+          <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon}>
             Join Discord to Request Access
           </CTAButton>
-          <CTAButton href={siteLinks.steam} external variant="secondary">
+          <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon}>
             Wishlist on Steam
           </CTAButton>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-10 lg:px-6">
-        <div className="border border-border bg-black/42 p-6 text-lg leading-9 text-muted transition duration-300 hover:border-stone/25 hover:bg-white/[0.035] md:p-9">
-          Closed Beta is an early access opportunity for players, creators, and community members who want to step into Legacy of Mind before launch. It is built for people who genuinely care about dark first-person soulslikes, survival, atmosphere, and punishing nightmare boss encounters.
-          <br /><br />
-          Some early players can receive access to the game for free before release. To get started, join Discord or submit the form, then request access and introduce yourself. Huge numbers are not the point here. Honest interest, good energy, and useful feedback matter more.
-          <blockquote className="mt-8 border-l border-[var(--color-earth)]/55 pl-5 font-display text-3xl uppercase leading-snug tracking-[0.08em] text-[var(--color-parchment)] md:text-4xl">
-            "Join a community of soulslike players, indie game fans, creators, and game devs stepping toward release together."
-          </blockquote>
+      <section className="mx-auto max-w-7xl px-4 pb-10 lg:px-6">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {discordFeatures.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.title} className="group border border-border bg-black/36 p-5 text-left shadow-insetStone transition duration-300 hover:-translate-y-1 hover:border-[#8791ff]/36 hover:bg-white/[0.035] hover:shadow-[inset_0_0_35px_rgba(255,255,255,0.03),0_20px_48px_rgba(42,52,142,0.14)]">
+                <div className="flex items-center gap-3 text-stone">
+                  <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-current transition group-hover:text-[#aab2ff]" />
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.14em]">{item.title}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-muted">{item.text}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -121,8 +153,8 @@ export function ClosedBeta() {
         <div className="border border-stone/20 bg-white/[0.035] p-8 shadow-insetStone transition duration-300 hover:border-stone/35">
           <h2 className="font-display text-4xl uppercase tracking-[0.1em] text-[var(--color-parchment)] md:text-6xl">Experience the vast desolate world before release</h2>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <CTAButton href={siteLinks.discord} external>Join Discord</CTAButton>
-            <CTAButton href={siteLinks.steam} external variant="secondary">Wishlist Now</CTAButton>
+            <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon}>Join Discord</CTAButton>
+            <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon}>Wishlist Now on Steam</CTAButton>
           </div>
         </div>
       </section>

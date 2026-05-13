@@ -3,6 +3,14 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { navLinks, siteLinks, socialLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
+import { SteamIcon } from './PlatformIcons';
+
+const socialHoverClasses = {
+  discord: 'hover:border-[#5865f2]/55 hover:text-[#aab2ff] hover:shadow-[0_0_18px_rgba(88,101,242,0.18)]',
+  youtube: 'hover:border-[#b83333]/55 hover:text-[#f0a0a0] hover:shadow-[0_0_18px_rgba(190,44,44,0.16)]',
+  tiktok: 'hover:border-[#36d4d0]/45 hover:text-[#bdf4f2] hover:shadow-[0_0_18px_rgba(54,212,208,0.12)]',
+  instagram: 'hover:border-[#b45a7c]/50 hover:text-[#e0afc0] hover:shadow-[0_0_18px_rgba(180,90,124,0.12)]',
+};
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -48,13 +56,20 @@ export function Navbar() {
             </NavLink>
           ))}
           <div className="mx-1 h-5 w-px bg-border" />
-          {socialLinks.map(({ label, href, icon: Icon }) => (
-            <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="text-muted transition hover:text-stone">
+          {socialLinks.map(({ label, href, icon: Icon, platform }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className={`border border-transparent p-1 text-muted transition ${socialHoverClasses[platform]}`}
+            >
               <Icon aria-hidden="true" className="h-4 w-4" />
             </a>
           ))}
-          <CTAButton href={siteLinks.steam} external className="min-h-10 px-4 py-2 text-xs">
-            Wishlist
+          <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="min-h-10 px-4 py-2 text-[0.68rem] tracking-[0.14em]">
+            Wishlist on Steam
           </CTAButton>
         </div>
 
@@ -88,15 +103,15 @@ export function Navbar() {
             ))}
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2">
-            {socialLinks.map(({ label, href, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2 border border-border px-4 py-3 text-sm text-muted">
+            {socialLinks.map(({ label, href, icon: Icon, platform }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" className={`flex items-center gap-2 border border-border px-4 py-3 text-sm text-muted transition ${socialHoverClasses[platform]}`}>
                 <Icon aria-hidden="true" className="h-4 w-4" />
                 {label}
               </a>
             ))}
           </div>
-          <CTAButton href={siteLinks.steam} external className="mt-4 w-full">
-            Wishlist Now
+          <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="mt-4 w-full">
+            Wishlist Now on Steam
           </CTAButton>
         </div>
       )}

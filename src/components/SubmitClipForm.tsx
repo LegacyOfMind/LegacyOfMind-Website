@@ -1,4 +1,5 @@
 import type { FormEvent } from 'react';
+import { UploadCloud } from 'lucide-react';
 import { useMemo, useRef, useState } from 'react';
 import { submitClip } from '../services/clipSubmissions';
 
@@ -269,8 +270,9 @@ export function SubmitClipForm() {
           <button
             type="submit"
             disabled={!isFormValid || isSubmitting}
-            className="inline-flex min-h-12 items-center justify-center border border-stone/60 bg-stone px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:bg-white disabled:cursor-not-allowed disabled:border-border disabled:bg-white/[0.06] disabled:text-muted"
+            className="group inline-flex min-h-12 items-center justify-center gap-2.5 border border-stone/60 bg-stone px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:bg-white disabled:cursor-not-allowed disabled:border-border disabled:bg-white/[0.06] disabled:text-muted"
           >
+            <UploadCloud aria-hidden="true" className="h-4 w-4 transition group-hover:-translate-y-0.5" />
             {isSubmitting ? 'Submitting...' : 'Submit Clip'}
           </button>
         </form>

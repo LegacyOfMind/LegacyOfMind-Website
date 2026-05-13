@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { PlayCircle } from 'lucide-react';
+import { Youtube } from 'lucide-react';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
+import { DiscordIcon } from './DiscordIcon';
+import { SteamIcon } from './PlatformIcons';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -35,10 +37,10 @@ export function Hero() {
             Survive the nightmares that learned to hunt.
           </p>
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CTAButton href={siteLinks.steam} external className="w-full sm:w-auto">
-              Wishlist Now
+            <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="w-full sm:w-auto">
+              Wishlist Now on Steam
             </CTAButton>
-            <CTAButton href="/closed-beta" variant="secondary" className="w-full sm:w-auto">
+            <CTAButton href="/closed-beta" variant="discord" icon={DiscordIcon} className="w-full sm:w-auto">
               Closed Beta Access
             </CTAButton>
           </div>
@@ -46,12 +48,12 @@ export function Hero() {
             Closed Beta access is available for creators, playtesters, and players who want to help shape the world before release.
           </p>
           <CTAButton
-            href="https://youtu.be/iPgmdf9mY8Y"
+            href={siteLinks.trailer}
             external
-            variant="secondary"
-            className="mt-6 min-h-14 border-stone/55 bg-black/40 px-7 py-3.5 shadow-[0_0_34px_rgba(217,215,204,0.09)] hover:-translate-y-0.5 hover:border-stone/80 hover:bg-white/[0.085] hover:shadow-[0_0_42px_rgba(217,215,204,0.16)]"
+            variant="youtube"
+            icon={Youtube}
+            className="mt-6 min-h-14 px-7 py-3.5"
           >
-            <PlayCircle aria-hidden="true" className="h-4 w-4 transition group-hover:scale-110" />
             Watch Trailer
           </CTAButton>
         </div>

@@ -21,7 +21,7 @@ export function ClipCard({ clip }: { clip: Clip }) {
           {clip.creatorLink}
         </a>
         <p className="mt-4 min-h-12 text-sm leading-6 text-muted">{clip.description}</p>
-        <CTAButton href={clip.watchHref} variant="ghost" external className="mt-5 min-h-10 px-4 py-2 text-xs">
+        <CTAButton href={clip.watchHref} variant="ghost" external icon={Play} className="mt-5 min-h-10 px-4 py-2 text-xs">
           Watch
         </CTAButton>
       </div>
