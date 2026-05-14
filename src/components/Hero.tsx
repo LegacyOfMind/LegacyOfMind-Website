@@ -41,11 +41,11 @@ export function Hero() {
               Wishlist Now on Steam
             </CTAButton>
             <CTAButton href="/closed-beta" variant="discord" icon={DiscordIcon} className="w-full sm:w-auto">
-              Closed Beta Access
+              Playtest Now
             </CTAButton>
           </div>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-muted">
-            Closed Beta access is available for creators, playtesters, and players who want to help shape the world before release.
+          <p className="mx-auto mt-5 max-w-3xl text-sm font-medium leading-7 text-stone/80 md:text-base">
+            Our Discord welcomes casual players, soulslike fans, indie devs seeking advice, creators growing their audience, and anyone who wants to playtest or share what they are building.
           </p>
           <CTAButton
             href={siteLinks.trailer}
