@@ -30,25 +30,22 @@ const storyParagraphs = [
   'Whether Legacy of Mind succeeds or whether I become another indie developer who never makes a profit, I will never regret the time, money, and effort I have put into it. I hope this story motivates anyone reading it, especially other solo developers and creators who are trying to build something while life is still happening around them.',
   'I understand how hard indie games are to make. I understand how hard it is to get views, build a community, and convince people to care about something you have made. That is why I am completely open to people promoting their own work on my server.',
   'If people had not helped me, given me opportunities, offered discounts, shared advice, or let me do things I would not normally have been able to do, I would never have finished the version of Legacy of Mind you see today.',
-  'So if you are a player, a creator, a streamer, or an indie developer, I want the Legacy of Mind community to be a place where you can be part of the game, talk about your own work, and grow alongside it.',
+  'So if you are a player, a creator, a streamer, or an indie developer, I want the Legacy of Mind community to be a place where you can be part of the game, talk about your own work, and feel welcome in the world around it.',
 ];
 
 type PullQuoteProps = {
   children: string;
-  variant?: 'line' | 'panel';
 };
 
-function PullQuote({ children, variant = 'line' }: PullQuoteProps) {
-  const classes =
-    variant === 'panel'
-      ? 'my-12 max-w-4xl border border-stone/20 bg-white/[0.035] p-6 shadow-insetStone md:p-8'
-      : 'my-12 max-w-4xl border-y border-border py-8';
-
+function PullQuote({ children }: PullQuoteProps) {
   return (
-    <blockquote className={classes}>
-      <p className="font-display text-xl uppercase leading-snug tracking-[0.08em] text-stone md:text-3xl">
+    <blockquote className="my-12 max-w-4xl border-y border-stone/20 bg-white/[0.018] py-8 shadow-insetStone md:py-10">
+      <p className="font-display text-xl uppercase leading-snug tracking-[0.08em] text-[#e5d9bc] md:text-3xl">
         "{children}"
       </p>
+      <footer className="mt-5 text-xs font-bold uppercase tracking-[0.28em] text-[var(--color-earth)]">
+        - Developer of Legacy of Mind
+      </footer>
     </blockquote>
   );
 }
@@ -75,7 +72,7 @@ export function MyStory() {
           ))}
         </div>
 
-        <PullQuote variant="panel">I could see the game in my head, but the hardware was constantly holding me back.</PullQuote>
+        <PullQuote>I could see the game in my head, but the hardware was constantly holding me back.</PullQuote>
 
         <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
           {storyParagraphs.slice(6, 10).map((paragraph) => (
@@ -91,7 +88,7 @@ export function MyStory() {
           ))}
         </div>
 
-        <PullQuote variant="panel">AI can be useful, but it cannot replicate the connection I have to this game.</PullQuote>
+        <PullQuote>AI can be useful, but it cannot replicate the connection I have to this game.</PullQuote>
 
         <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
           {storyParagraphs.slice(15, 20).map((paragraph) => (
@@ -107,15 +104,13 @@ export function MyStory() {
           ))}
         </div>
 
-        <PullQuote variant="panel">The atmosphere alone made me want to keep going.</PullQuote>
+        <PullQuote>The atmosphere alone made me want to keep going.</PullQuote>
 
         <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
           {storyParagraphs.slice(24).map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-
-        <PullQuote>I want the Legacy of Mind community to be a place where people can grow alongside it.</PullQuote>
 
         <div className="mt-12 border-t border-border pt-8">
           <CTAButton href="/" variant="ghost" className="w-full sm:w-auto">

@@ -82,7 +82,7 @@ export function Home() {
                 Legacy of Mind has been built through university, work, all-nighters, lost progress, and years of handmade worldbuilding.
               </p>
               <p className="mt-4 max-w-3xl leading-8 text-muted">
-                Read the story behind the game, from its first versions as The Wasteland Trials and Hollowed Out to the dark post-apocalyptic horror RPG it has become today.
+                Read my personal story behind making Legacy of Mind, and how it became the dark post-apocalyptic horror RPG it is today.
               </p>
             </div>
             <CTAButton href="/my-story" variant="ghost" icon={BookOpenText} className="w-full md:w-auto">
