@@ -33,6 +33,26 @@ const storyParagraphs = [
   'So if you are a player, a creator, a streamer, or an indie developer, I want the Legacy of Mind community to be a place where you can be part of the game, talk about your own work, and grow alongside it.',
 ];
 
+type PullQuoteProps = {
+  children: string;
+  variant?: 'line' | 'panel';
+};
+
+function PullQuote({ children, variant = 'line' }: PullQuoteProps) {
+  const classes =
+    variant === 'panel'
+      ? 'my-12 max-w-4xl border border-stone/20 bg-white/[0.035] p-6 shadow-insetStone md:p-8'
+      : 'my-12 max-w-4xl border-y border-border py-8';
+
+  return (
+    <blockquote className={classes}>
+      <p className="font-display text-xl uppercase leading-snug tracking-[0.08em] text-stone md:text-3xl">
+        "{children}"
+      </p>
+    </blockquote>
+  );
+}
+
 export function MyStory() {
   return (
     <main className="relative z-10 pt-28">
@@ -46,30 +66,56 @@ export function MyStory() {
         </p>
       </section>
 
-      <article className="mx-auto max-w-3xl px-4 pb-24 lg:px-6">
-        <div className="border-y border-border py-8">
-          <p className="font-display text-2xl uppercase leading-snug tracking-[0.08em] text-stone md:text-3xl">
-            I honestly cannot wait to play my own game.
-          </p>
-        </div>
+      <article className="mx-auto max-w-5xl px-4 pb-24 lg:px-6">
+        <PullQuote>I honestly cannot wait to play my own game.</PullQuote>
 
-        <div className="mt-10 space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
-          {storyParagraphs.slice(0, 16).map((paragraph) => (
+        <div className="mt-10 max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(0, 6).map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
 
-        <div className="my-12 border border-stone/20 bg-white/[0.035] p-6 shadow-insetStone md:p-8">
-          <p className="font-display text-xl uppercase leading-snug tracking-[0.08em] text-stone md:text-2xl">
-            Every metre of the map is handmade. Nothing is procedurally generated.
-          </p>
-        </div>
+        <PullQuote variant="panel">I could see the game in my head, but the hardware was constantly holding me back.</PullQuote>
 
-        <div className="space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
-          {storyParagraphs.slice(16).map((paragraph) => (
+        <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(6, 10).map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+
+        <PullQuote>Legacy of Mind became more than just a project to me.</PullQuote>
+
+        <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(10, 15).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <PullQuote variant="panel">AI can be useful, but it cannot replicate the connection I have to this game.</PullQuote>
+
+        <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(15, 20).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <PullQuote>Every metre of the map is handmade. Nothing is procedurally generated.</PullQuote>
+
+        <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(20, 24).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <PullQuote variant="panel">The atmosphere alone made me want to keep going.</PullQuote>
+
+        <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
+          {storyParagraphs.slice(24).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <PullQuote>I want the Legacy of Mind community to be a place where people can grow alongside it.</PullQuote>
 
         <div className="mt-12 border-t border-border pt-8">
           <CTAButton href="/" variant="ghost" className="w-full sm:w-auto">
