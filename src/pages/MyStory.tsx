@@ -39,11 +39,15 @@ type PullQuoteProps = {
 
 function PullQuote({ children }: PullQuoteProps) {
   return (
-    <blockquote className="my-12 max-w-4xl border-y border-stone/20 bg-white/[0.018] py-8 shadow-insetStone md:py-10">
-      <p className="font-display text-xl uppercase leading-snug tracking-[0.08em] text-[#e5d9bc] md:text-3xl">
+    <blockquote className="relative my-12 flex min-h-[150px] max-w-4xl flex-col items-center justify-center overflow-hidden border border-stone/25 bg-[#0b0b0a]/85 px-5 py-7 text-center shadow-[inset_0_0_36px_rgba(255,255,255,0.025),0_0_42px_rgba(0,0,0,0.36)] sm:px-7 md:min-h-[190px] md:px-10 md:py-11">
+      <span className="absolute left-0 top-0 h-9 w-9 border-l border-t border-[var(--color-earth)]/35" aria-hidden="true" />
+      <span className="absolute bottom-0 right-0 h-9 w-9 border-b border-r border-[var(--color-earth)]/35" aria-hidden="true" />
+      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-earth)]/28 to-transparent" aria-hidden="true" />
+      <p className="m-0 max-w-3xl font-display text-xl uppercase leading-snug tracking-[0.055em] text-[#e5d9bc] md:text-3xl md:tracking-[0.07em]">
         "{children}"
       </p>
-      <footer className="mt-5 text-xs font-bold uppercase tracking-[0.28em] text-[var(--color-earth)]">
+      <div className="mt-6 h-px w-20 bg-[var(--color-earth)]/28" aria-hidden="true" />
+      <footer className="mt-4 text-center text-[0.68rem] font-bold uppercase tracking-[0.24em] text-muted">
         - Developer of Legacy of Mind
       </footer>
     </blockquote>
