@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Youtube } from 'lucide-react';
+import { LockKeyhole, Youtube } from 'lucide-react';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { DiscordIcon } from './DiscordIcon';
@@ -47,15 +47,27 @@ export function Hero() {
           <p className="mx-auto mt-5 max-w-3xl text-sm font-medium leading-7 text-stone/80 md:text-base">
             Our Discord welcomes casual players, soulslike fans, indie devs seeking advice, creators growing their audience, and anyone who wants to playtest or share what they are building.
           </p>
-          <CTAButton
-            href={siteLinks.trailer}
-            external
-            variant="youtube"
-            icon={Youtube}
-            className="mt-6 min-h-14 px-7 py-3.5"
-          >
-            Watch Trailer
-          </CTAButton>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <CTAButton
+              href={siteLinks.trailer}
+              external
+              variant="youtube"
+              icon={Youtube}
+              className="min-h-14 w-full px-5 py-3.5 text-xs sm:w-auto sm:px-7 md:text-sm"
+            >
+              Watch Official Story Trailer
+            </CTAButton>
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              aria-label="Official Gameplay Trailer coming soon"
+              className="inline-flex min-h-14 w-full cursor-not-allowed items-center justify-center gap-2.5 border border-stone/20 bg-white/[0.025] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted/70 opacity-60 shadow-[inset_0_0_22px_rgba(217,215,204,0.025)] sm:w-auto sm:px-7 md:text-sm"
+            >
+              <LockKeyhole aria-hidden="true" className="h-4 w-4 shrink-0" />
+              <span>Gameplay Trailer Coming Soon</span>
+            </button>
+          </div>
         </div>
       </motion.div>
     </section>

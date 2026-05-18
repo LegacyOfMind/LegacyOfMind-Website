@@ -72,7 +72,7 @@ export function CTAButton({
 
   if (external) {
     return (
-      <a className={classes} href={href} target="_blank" rel="noreferrer">
+      <a className={classes} href={href} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     );
