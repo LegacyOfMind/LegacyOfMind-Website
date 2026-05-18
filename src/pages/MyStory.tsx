@@ -89,7 +89,7 @@ export function MyStory() {
           ))}
         </div>
 
-        <PullQuote>AI can be useful, but it cannot replicate the connection I have to this game.</PullQuote>
+        <PullQuote>AI can help, but you can feel the difference between something made with passion and something made for convenience.</PullQuote>
 
         <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
           {storyParagraphs.slice(15, 20).map((paragraph) => (
@@ -105,7 +105,7 @@ export function MyStory() {
           ))}
         </div>
 
-        <PullQuote>The atmosphere alone made me want to keep going.</PullQuote>
+        <PullQuote>When I lost months of progress, I mentally hit rock bottom, but the world I had left reminded me why I started.</PullQuote>
 
         <div className="max-w-3xl space-y-7 text-base leading-8 text-muted md:text-lg md:leading-9">
           {storyParagraphs.slice(24).map((paragraph) => (
