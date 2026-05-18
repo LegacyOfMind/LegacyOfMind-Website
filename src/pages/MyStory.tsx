@@ -30,7 +30,7 @@ const storyParagraphs = [
   'Whether Legacy of Mind succeeds or whether I become another indie developer who never makes a profit, I will never regret the time, money, and effort I have put into it. I hope this story motivates anyone reading it, especially other solo developers and creators who are trying to build something while life is still happening around them.',
   'I understand how hard indie games are to make. I understand how hard it is to get views, build a community, and convince people to care about something you have made. That is why I am completely open to people promoting their own work on my server.',
   'If people had not helped me, given me opportunities, offered discounts, shared advice, or let me do things I would not normally have been able to do, I would never have finished the version of Legacy of Mind you see today.',
-  'So if you are a player, a creator, a streamer, or an indie developer, I want the Legacy of Mind community to be a place where you can be part of the game, talk about your own work, and feel welcome in the world around it.',
+  'So if you are a player, a creator, a streamer, or an indie developer, I hope the Legacy of Mind community can also be a place where I can help people who want to create their own games. Whether you need advice, have questions, or want to understand the process from the first idea to publishing on Steam, I want that knowledge to be shared.',
 ];
 
 type PullQuoteProps = {
