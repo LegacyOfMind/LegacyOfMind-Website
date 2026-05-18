@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { ClosedBeta } from './pages/ClosedBeta';
 import { Community } from './pages/Community';
 import { Home } from './pages/Home';
+import { MyStory } from './pages/MyStory';
 import { SubmissionsDashboard } from './pages/SubmissionsDashboard';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/closed-beta" element={<ClosedBeta />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/my-story" element={<MyStory />} />
         <Route path="/submissions-dashboard" element={<SubmissionsDashboard />} />
       </Routes>
       <Footer />

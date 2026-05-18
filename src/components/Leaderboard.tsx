@@ -1,128 +1,88 @@
-import { useMemo, useState } from 'react';
-import { leaderboardRows } from '../data/leaderboard';
+import { Trophy } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 
-const rowsPerPage = 10;
+const podiumSlots = [
+  {
+    rank: '1st',
+    player: 'Coming Soon',
+    time: '--:--:--',
+    status: 'Awaiting first official clear',
+    tone: 'border-[rgba(182,161,118,0.38)] bg-[rgba(182,161,118,0.055)]',
+    iconTone: 'text-[var(--color-earth)]',
+    order: 'order-1 md:order-2',
+    height: 'md:min-h-[20rem]',
+  },
+  {
+    rank: '2nd',
+    player: 'Coming Soon',
+    time: '--:--:--',
+    status: 'Record slot opens in playtesting',
+    tone: 'border-stone/22 bg-white/[0.035]',
+    iconTone: 'text-stone/70',
+    order: 'order-2 md:order-1',
+    height: 'md:min-h-[17rem]',
+  },
+  {
+    rank: '3rd',
+    player: 'Coming Soon',
+    time: '--:--:--',
+    status: 'Record slot opens in playtesting',
+    tone: 'border-[rgba(120,87,58,0.5)] bg-[rgba(120,87,58,0.055)]',
+    iconTone: 'text-[#9b7758]',
+    order: 'order-3 md:order-3',
+    height: 'md:min-h-[15.5rem]',
+  },
+];
 
 export function Leaderboard() {
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState('');
-  const pageCount = Math.ceil(leaderboardRows.length / rowsPerPage);
-
-  const visibleRows = useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    return leaderboardRows.slice(start, start + rowsPerPage);
-  }, [page]);
-
-  const searchResult = useMemo(() => {
-    const trimmed = query.trim().toLowerCase();
-    if (!trimmed) return null;
-    return leaderboardRows.find((row) => row.name.toLowerCase().includes(trimmed)) ?? null;
-  }, [query]);
-
-  const searchedWithoutMatch = query.trim().length > 0 && !searchResult;
-
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 lg:px-6">
       <SectionTitle
         eyebrow="Leaderboard"
-        title="Quickest Playthroughs"
-        text="The quickest completed playthroughs will appear here once Closed Beta and community submissions begin. Search a name, scan the rankings, and see who pushed deepest through the broken world."
+        title="Fastest Known Survivors"
+        text="The first official completion times will be recorded after playtesting begins."
       />
 
-      <div className="mt-8 grid gap-4 border border-border bg-black/30 p-4 md:grid-cols-[1fr_auto] md:items-end">
-        <label className="grid gap-2 text-sm text-muted">
-          Search player / creator name
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            className="form-field"
-            placeholder="Type a name..."
-          />
-        </label>
-        <div className="text-sm leading-6 text-muted">
-          Tracking <span className="text-stone">{leaderboardRows.length}</span> ranking slots
-        </div>
-      </div>
-
-      {searchResult && (
-        <div className="mt-5 border border-stone/30 bg-white/[0.04] p-5 text-sm leading-7 text-muted">
-          Found <span className="text-stone">{searchResult.name}</span> at{' '}
-          <span className="font-display text-xl text-[var(--color-parchment)]">#{searchResult.rank}</span> with time{' '}
-          <span className="text-stone">{searchResult.time}</span>. Platform / Link: {searchResult.platform} / {searchResult.linkLabel}. Date: {searchResult.date}.
-        </div>
-      )}
-
-      {searchedWithoutMatch && (
-        <div className="mt-5 border border-border bg-black/36 p-5 text-sm leading-7 text-muted">
-          Not currently placed in the visible rankings. Current tracked range: <span className="text-stone">{leaderboardRows.length}+</span>.
-        </div>
-      )}
-
-      <div className="mt-10 hidden overflow-hidden border border-border md:block">
-        <table className="w-full border-collapse text-left">
-          <thead className="bg-white/[0.04] text-xs uppercase tracking-[0.22em] text-muted">
-            <tr>
-              <th className="px-5 py-4">Rank</th>
-              <th className="px-5 py-4">Player / Creator Name</th>
-              <th className="px-5 py-4">Time</th>
-              <th className="px-5 py-4">Platform / Link</th>
-              <th className="px-5 py-4">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {visibleRows.map((row) => (
-              <tr key={row.rank} className="border-t border-border bg-black/28 text-sm text-muted transition hover:bg-white/[0.035]">
-                <td className="px-5 py-5 font-display text-xl text-stone">#{row.rank}</td>
-                <td className="px-5 py-5 text-stone">{row.name}</td>
-                <td className="px-5 py-5">{row.time}</td>
-                <td className="px-5 py-5">
-                  <a href={row.href} className="underline-offset-4 hover:text-stone hover:underline">
-                    {row.platform} / {row.linkLabel}
-                  </a>
-                </td>
-                <td className="px-5 py-5">{row.date}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="mt-8 grid gap-4 md:hidden">
-        {visibleRows.map((row) => (
-          <article key={row.rank} className="border border-border bg-black/32 p-5 transition hover:border-stone/30">
-            <div className="flex items-center justify-between gap-4">
-              <span className="font-display text-2xl text-stone">#{row.rank}</span>
-              <span className="text-sm text-muted">{row.time}</span>
+      <div className="mt-10 grid gap-5 md:grid-cols-3 md:items-end">
+        {podiumSlots.map((slot) => (
+          <article
+            key={slot.rank}
+            className={`${slot.order} ${slot.height} group relative flex flex-col justify-between overflow-hidden border ${slot.tone} p-6 shadow-insetStone transition duration-300 hover:-translate-y-1 hover:border-stone/42 hover:bg-white/[0.055]`}
+          >
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-stone/28 to-transparent" aria-hidden="true" />
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-muted">Rank</p>
+                <h3 className="mt-3 font-display text-5xl uppercase leading-none tracking-[0.08em] text-stone">
+                  {slot.rank}
+                </h3>
+              </div>
+              <div className={`border border-border bg-black/35 p-3 ${slot.iconTone}`}>
+                <Trophy aria-hidden="true" className="h-5 w-5" />
+              </div>
             </div>
-            <h3 className="mt-4 text-lg text-stone">{row.name}</h3>
-            <p className="mt-2 text-sm text-muted">{row.platform} / {row.linkLabel}</p>
-            <p className="mt-2 text-sm text-muted">{row.date}</p>
+
+            <div className="mt-10">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted">Player</p>
+              <p className="mt-2 text-xl text-stone">{slot.player}</p>
+              <div className="mt-6 grid gap-4 border-t border-border pt-5 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-muted">Time</p>
+                  <p className="mt-2 font-display text-2xl text-[var(--color-parchment)]">{slot.time}</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-muted">Status</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{slot.status}</p>
+                </div>
+              </div>
+            </div>
           </article>
         ))}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <button
-          type="button"
-          onClick={() => setPage((current) => Math.max(1, current - 1))}
-          disabled={page === 1}
-          className="border border-border px-4 py-2 text-sm uppercase tracking-[0.16em] text-muted transition hover:border-stone/40 hover:text-stone disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Previous
-        </button>
-        <div className="text-sm text-muted">
-          Page <span className="text-stone">{page}</span> of <span className="text-stone">{pageCount}</span>
-        </div>
-        <button
-          type="button"
-          onClick={() => setPage((current) => Math.min(pageCount, current + 1))}
-          disabled={page === pageCount}
-          className="border border-border px-4 py-2 text-sm uppercase tracking-[0.16em] text-muted transition hover:border-stone/40 hover:text-stone disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Next
-        </button>
-      </div>
+      <p className="mt-6 border-l border-[var(--color-earth)]/45 pl-4 text-sm leading-7 text-muted">
+        Official records will begin once early access and playtesting opens.
+      </p>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Instagram, KeyRound, Youtube } from 'lucide-react';
+import { BookOpenText, Instagram, KeyRound, Youtube } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
 import { DiscordIcon } from '../components/DiscordIcon';
 import { Hero } from '../components/Hero';
@@ -68,6 +68,26 @@ export function Home() {
                 Learn About Closed Beta
               </CTAButton>
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-20 lg:px-6">
+          <div className="grid gap-8 border border-border bg-black/36 p-6 shadow-insetStone transition duration-300 hover:border-stone/30 hover:bg-white/[0.035] md:grid-cols-[1fr_auto] md:items-center md:p-8">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.34em] text-[var(--color-earth)]">From the solo developer</p>
+              <h2 className="mt-4 font-display text-3xl uppercase leading-tight tracking-[0.08em] text-stone md:text-4xl">
+                Meet the Solo Developer
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
+                Legacy of Mind has been built through university, work, all-nighters, lost progress, and years of handmade worldbuilding.
+              </p>
+              <p className="mt-4 max-w-3xl leading-8 text-muted">
+                Read the story behind the game, from its first versions as The Wasteland Trials and Hollowed Out to the dark post-apocalyptic horror RPG it has become today.
+              </p>
+            </div>
+            <CTAButton href="/my-story" variant="ghost" icon={BookOpenText} className="w-full md:w-auto">
+              Read My Story
+            </CTAButton>
           </div>
         </section>
 

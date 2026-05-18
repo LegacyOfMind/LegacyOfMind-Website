@@ -20,6 +20,13 @@ export const navLinks = [
   { label: 'Community', href: '/community' },
 ];
 
+export const headerNavLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Closed Beta', href: '/closed-beta' },
+  { label: 'Community', href: '/community' },
+  { label: 'My Story', href: '/my-story' },
+];
+
 export type SocialLink = {
   label: string;
   href: string;

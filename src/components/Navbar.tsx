@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { navLinks, siteLinks, socialLinks } from '../data/siteLinks';
+import { headerNavLinks, siteLinks, socialLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { SteamIcon } from './PlatformIcons';
 
@@ -42,7 +42,7 @@ export function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-5 lg:flex">
-          {navLinks.map((link) => (
+          {headerNavLinks.map((link) => (
             <NavLink
               key={link.href}
               to={link.href}
@@ -87,7 +87,7 @@ export function Navbar() {
       {open && (
         <div className="border-t border-border bg-black/95 px-4 pb-5 pt-3 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
+            {headerNavLinks.map((link) => (
               <NavLink
                 key={link.href}
                 to={link.href}
