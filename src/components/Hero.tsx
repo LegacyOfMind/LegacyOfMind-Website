@@ -92,7 +92,7 @@ export function Hero() {
             setAmbienceVideoReady(false);
             setShowAmbienceVideo(false);
           }}
-          className={`hero-ambience-video pointer-events-none absolute inset-x-0 top-0 z-[15] h-screen w-full object-cover ${
+          className={`hero-ambience-video pointer-events-none absolute inset-x-0 top-0 z-[15] h-screen w-full ${
             showAmbienceVideo && ambienceVideoReady ? 'is-visible' : ''
           }`}
         >
