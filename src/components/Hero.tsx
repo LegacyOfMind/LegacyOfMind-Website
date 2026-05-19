@@ -1,26 +1,28 @@
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LockKeyhole, Youtube } from 'lucide-react';
-import { useEffect, useState, type PointerEvent } from 'react';
+import type { PointerEvent } from 'react';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { DiscordIcon } from './DiscordIcon';
 import { SteamIcon } from './PlatformIcons';
-
-const HERO_AMBIENCE_VIDEO = '/videos/hero-ambience.mp4';
 
 export function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 700], [0, 120]);
   const opacity = useTransform(scrollY, [0, 680], [1, 0.35]);
   const reduceMotion = useReducedMotion();
-  const [showAmbienceVideo, setShowAmbienceVideo] = useState(false);
-  const [ambienceVideoReady, setAmbienceVideoReady] = useState(false);
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
+  const cursorX = useMotionValue(-1000);
+  const cursorY = useMotionValue(-1000);
+  const cursorOpacity = useMotionValue(0);
   const auraX = useSpring(useTransform(pointerX, [-1, 1], [-28, 28]), { stiffness: 42, damping: 24, mass: 0.8 });
   const auraY = useSpring(useTransform(pointerY, [-1, 1], [-18, 18]), { stiffness: 42, damping: 24, mass: 0.8 });
   const mistX = useSpring(useTransform(pointerX, [-1, 1], [18, -18]), { stiffness: 34, damping: 28, mass: 1 });
   const mistY = useSpring(useTransform(pointerY, [-1, 1], [12, -12]), { stiffness: 34, damping: 28, mass: 1 });
+  const cursorAuraX = useSpring(cursorX, { stiffness: 92, damping: 30, mass: 0.35 });
+  const cursorAuraY = useSpring(cursorY, { stiffness: 92, damping: 30, mass: 0.35 });
+  const cursorAuraOpacity = useSpring(cursorOpacity, { stiffness: 70, damping: 28, mass: 0.4 });
 
   const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
     if (reduceMotion) {
@@ -30,26 +32,16 @@ export function Hero() {
     const rect = event.currentTarget.getBoundingClientRect();
     pointerX.set(((event.clientX - rect.left) / rect.width - 0.5) * 2);
     pointerY.set(((event.clientY - rect.top) / rect.height - 0.5) * 2);
+    cursorX.set(event.clientX - rect.left);
+    cursorY.set(event.clientY - rect.top);
+    cursorOpacity.set(1);
   };
 
   const handlePointerLeave = () => {
     pointerX.set(0);
     pointerY.set(0);
+    cursorOpacity.set(0);
   };
-
-  useEffect(() => {
-    setShowAmbienceVideo(false);
-
-    if (reduceMotion) {
-      return undefined;
-    }
-
-    const timer = window.setTimeout(() => {
-      setShowAmbienceVideo(true);
-    }, 3000);
-
-    return () => window.clearTimeout(timer);
-  }, [reduceMotion]);
 
   return (
     <section
@@ -71,6 +63,11 @@ export function Hero() {
       <div aria-hidden="true" className="hero-ether-field pointer-events-none absolute inset-0 z-[3]" />
       <div aria-hidden="true" className="hero-lattice-thread pointer-events-none absolute inset-0 z-[4]" />
       <div aria-hidden="true" className="hero-ash-field pointer-events-none absolute inset-0 z-[5]" />
+      <motion.div
+        aria-hidden="true"
+        style={{ left: cursorAuraX, top: cursorAuraY, opacity: cursorAuraOpacity }}
+        className="hero-cursor-aura pointer-events-none absolute z-[6]"
+      />
       <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-screen items-center justify-center">
         <img
           src="/assets/logos/LoM Text Logo.png"
@@ -78,27 +75,6 @@ export function Hero() {
           className="h-auto w-[min(1100px,92vw)] animate-breathe object-contain opacity-55"
         />
       </motion.div>
-      {!reduceMotion && (
-        <video
-          aria-hidden="true"
-          tabIndex={-1}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onLoadedData={() => setAmbienceVideoReady(true)}
-          onError={() => {
-            setAmbienceVideoReady(false);
-            setShowAmbienceVideo(false);
-          }}
-          className={`hero-ambience-video pointer-events-none absolute inset-x-0 top-0 z-[15] h-screen w-full ${
-            showAmbienceVideo && ambienceVideoReady ? 'is-visible' : ''
-          }`}
-        >
-          <source src={HERO_AMBIENCE_VIDEO} type="video/mp4" />
-        </video>
-      )}
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.76)_26%,rgba(0,0,0,0.98)_100%)]" />
       <div aria-hidden="true" className="hero-front-haze pointer-events-none absolute inset-0 z-30" />
