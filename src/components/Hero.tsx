@@ -1,5 +1,6 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LockKeyhole, Youtube } from 'lucide-react';
+import type { PointerEvent } from 'react';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { DiscordIcon } from './DiscordIcon';
@@ -9,9 +10,49 @@ export function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 700], [0, 120]);
   const opacity = useTransform(scrollY, [0, 680], [1, 0.35]);
+  const reduceMotion = useReducedMotion();
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const auraX = useSpring(useTransform(pointerX, [-1, 1], [-28, 28]), { stiffness: 42, damping: 24, mass: 0.8 });
+  const auraY = useSpring(useTransform(pointerY, [-1, 1], [-18, 18]), { stiffness: 42, damping: 24, mass: 0.8 });
+  const mistX = useSpring(useTransform(pointerX, [-1, 1], [18, -18]), { stiffness: 34, damping: 28, mass: 1 });
+  const mistY = useSpring(useTransform(pointerY, [-1, 1], [12, -12]), { stiffness: 34, damping: 28, mass: 1 });
+
+  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
+    if (reduceMotion) {
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    pointerX.set(((event.clientX - rect.left) / rect.width - 0.5) * 2);
+    pointerY.set(((event.clientY - rect.top) / rect.height - 0.5) * 2);
+  };
+
+  const handlePointerLeave = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
 
   return (
-    <section className="relative isolate flex min-h-[118svh] items-start justify-center overflow-hidden px-4 pb-20 pt-24 md:min-h-[124svh]">
+    <section
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      className="hero-void relative isolate flex min-h-[118svh] items-start justify-center overflow-hidden px-4 pb-20 pt-24 md:min-h-[124svh]"
+    >
+      <div aria-hidden="true" className="hero-void-base absolute inset-0 -z-30" />
+      <motion.div
+        aria-hidden="true"
+        style={{ x: auraX, y: auraY }}
+        className="hero-reactive-aura absolute left-1/2 top-[36vh] -z-20 h-[56rem] w-[56rem] -ml-[28rem] -mt-[28rem]"
+      />
+      <motion.div
+        aria-hidden="true"
+        style={{ x: mistX, y: mistY }}
+        className="hero-mist-orbit absolute left-1/2 top-[47vh] -z-20 h-[42rem] w-[86rem] -ml-[43rem] -mt-[21rem]"
+      />
+      <div aria-hidden="true" className="hero-ether-field absolute inset-0 -z-20" />
+      <div aria-hidden="true" className="hero-lattice-thread absolute inset-0 -z-20" />
+      <div aria-hidden="true" className="hero-ash-field absolute inset-0 -z-20" />
       <motion.div style={{ y, opacity }} className="absolute inset-x-0 top-0 -z-10 flex h-screen items-center justify-center">
         <img
           src="/assets/logos/LoM Text Logo.png"
@@ -21,6 +62,7 @@ export function Hero() {
       </motion.div>
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.12),transparent_32%),linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.9)_86%)]" />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.82)_26%,rgba(0,0,0,0.98)_100%)]" />
+      <div aria-hidden="true" className="hero-edge-vignette absolute inset-0 -z-10" />
 
       <motion.div
         initial={{ opacity: 0, y: 28 }}
