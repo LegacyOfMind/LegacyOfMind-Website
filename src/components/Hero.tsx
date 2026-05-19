@@ -39,36 +39,37 @@ export function Hero() {
       onPointerLeave={handlePointerLeave}
       className="hero-void relative isolate flex min-h-[118svh] items-start justify-center overflow-hidden px-4 pb-20 pt-24 md:min-h-[124svh]"
     >
-      <div aria-hidden="true" className="hero-void-base absolute inset-0 -z-30" />
+      <div aria-hidden="true" className="hero-void-base pointer-events-none absolute inset-0 z-0" />
       <motion.div
         aria-hidden="true"
         style={{ x: auraX, y: auraY }}
-        className="hero-reactive-aura absolute left-1/2 top-[36vh] -z-20 h-[56rem] w-[56rem] -ml-[28rem] -mt-[28rem]"
+        className="hero-reactive-aura pointer-events-none absolute left-1/2 top-[36vh] z-[1] h-[60rem] w-[60rem] -ml-[30rem] -mt-[30rem]"
       />
       <motion.div
         aria-hidden="true"
         style={{ x: mistX, y: mistY }}
-        className="hero-mist-orbit absolute left-1/2 top-[47vh] -z-20 h-[42rem] w-[86rem] -ml-[43rem] -mt-[21rem]"
+        className="hero-mist-orbit pointer-events-none absolute left-1/2 top-[47vh] z-[2] h-[44rem] w-[90rem] -ml-[45rem] -mt-[22rem]"
       />
-      <div aria-hidden="true" className="hero-ether-field absolute inset-0 -z-20" />
-      <div aria-hidden="true" className="hero-lattice-thread absolute inset-0 -z-20" />
-      <div aria-hidden="true" className="hero-ash-field absolute inset-0 -z-20" />
-      <motion.div style={{ y, opacity }} className="absolute inset-x-0 top-0 -z-10 flex h-screen items-center justify-center">
+      <div aria-hidden="true" className="hero-ether-field pointer-events-none absolute inset-0 z-[3]" />
+      <div aria-hidden="true" className="hero-lattice-thread pointer-events-none absolute inset-0 z-[4]" />
+      <div aria-hidden="true" className="hero-ash-field pointer-events-none absolute inset-0 z-[5]" />
+      <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-screen items-center justify-center">
         <img
           src="/assets/logos/LoM Text Logo.png"
           alt=""
           className="h-auto w-[min(1100px,92vw)] animate-breathe object-contain opacity-55"
         />
       </motion.div>
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.12),transparent_32%),linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.9)_86%)]" />
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.82)_26%,rgba(0,0,0,0.98)_100%)]" />
-      <div aria-hidden="true" className="hero-edge-vignette absolute inset-0 -z-10" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.76)_26%,rgba(0,0,0,0.98)_100%)]" />
+      <div aria-hidden="true" className="hero-front-haze pointer-events-none absolute inset-0 z-30" />
+      <div aria-hidden="true" className="hero-edge-vignette pointer-events-none absolute inset-0 z-30" />
 
       <motion.div
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: 'easeOut' }}
-        className="mx-auto flex w-full max-w-5xl flex-col items-center text-center"
+        className="relative z-40 mx-auto flex w-full max-w-5xl flex-col items-center text-center"
       >
         <div aria-hidden="true" className="h-[13vh] min-h-20 md:h-[16vh]" />
         <p className="relative -translate-y-8 text-xs font-bold uppercase tracking-[0.42em] text-muted md:-translate-y-12">

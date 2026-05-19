@@ -134,40 +134,40 @@ a {
 
 .hero-void-base {
   background:
-    radial-gradient(circle at 50% 31%, rgba(209, 198, 168, 0.12), transparent 18%),
-    radial-gradient(circle at 50% 42%, rgba(120, 132, 142, 0.08), transparent 31%),
-    radial-gradient(ellipse at 50% 18%, rgba(255, 255, 255, 0.035), transparent 46%),
+    radial-gradient(circle at 50% 31%, rgba(209, 198, 168, 0.18), transparent 19%),
+    radial-gradient(circle at 50% 42%, rgba(120, 132, 142, 0.13), transparent 34%),
+    radial-gradient(ellipse at 50% 18%, rgba(255, 255, 255, 0.055), transparent 48%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.96) 86%);
   animation: hero-void-breathe 18s ease-in-out infinite;
 }
 
 .hero-reactive-aura {
-  opacity: 0.58;
-  filter: blur(20px);
+  opacity: 0.78;
+  filter: blur(22px);
   mix-blend-mode: screen;
   background:
-    radial-gradient(circle at 50% 50%, rgba(217, 215, 204, 0.18), transparent 20%),
-    radial-gradient(circle at 50% 50%, rgba(91, 103, 117, 0.13), transparent 42%),
-    radial-gradient(circle at 50% 50%, rgba(182, 161, 118, 0.07), transparent 64%);
+    radial-gradient(circle at 50% 50%, rgba(217, 215, 204, 0.3), transparent 18%),
+    radial-gradient(circle at 50% 50%, rgba(91, 103, 117, 0.24), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(182, 161, 118, 0.12), transparent 66%);
   animation: hero-aura-pulse 13s ease-in-out infinite;
 }
 
 .hero-mist-orbit {
-  opacity: 0.26;
-  filter: blur(34px);
+  opacity: 0.38;
+  filter: blur(36px);
   background:
-    radial-gradient(ellipse at 30% 48%, rgba(217, 215, 204, 0.11), transparent 32%),
-    radial-gradient(ellipse at 64% 45%, rgba(96, 105, 114, 0.13), transparent 38%),
-    radial-gradient(ellipse at 50% 68%, rgba(182, 161, 118, 0.07), transparent 44%);
+    radial-gradient(ellipse at 30% 48%, rgba(217, 215, 204, 0.16), transparent 32%),
+    radial-gradient(ellipse at 64% 45%, rgba(96, 105, 114, 0.2), transparent 38%),
+    radial-gradient(ellipse at 50% 68%, rgba(182, 161, 118, 0.11), transparent 44%);
   animation: hero-mist-breathe 24s ease-in-out infinite;
 }
 
 .hero-ether-field {
-  opacity: 0.34;
+  opacity: 0.5;
   background-image:
-    radial-gradient(circle, rgba(217, 215, 204, 0.15) 0 1px, transparent 1.7px),
-    radial-gradient(circle, rgba(182, 161, 118, 0.12) 0 1px, transparent 1.6px),
-    linear-gradient(116deg, transparent 0 47%, rgba(217, 215, 204, 0.035) 47.1% 47.35%, transparent 47.5% 100%);
+    radial-gradient(circle, rgba(217, 215, 204, 0.26) 0 1px, transparent 1.7px),
+    radial-gradient(circle, rgba(182, 161, 118, 0.18) 0 1px, transparent 1.6px),
+    linear-gradient(116deg, transparent 0 47%, rgba(217, 215, 204, 0.055) 47.1% 47.35%, transparent 47.5% 100%);
   background-position: 18px 34px, 90px 110px, 0 0;
   background-size: 220px 240px, 340px 380px, 680px 680px;
   mask-image: radial-gradient(ellipse at 50% 38%, rgba(0, 0, 0, 0.78), transparent 72%);
@@ -175,7 +175,7 @@ a {
 }
 
 .hero-lattice-thread {
-  opacity: 0.11;
+  opacity: 0.18;
   background-image:
     linear-gradient(128deg, transparent 0 40%, rgba(182, 161, 118, 0.26) 40.06% 40.22%, transparent 40.34% 100%),
     linear-gradient(56deg, transparent 0 62%, rgba(217, 215, 204, 0.14) 62.08% 62.2%, transparent 62.32% 100%),
@@ -188,10 +188,10 @@ a {
 }
 
 .hero-ash-field {
-  opacity: 0.34;
+  opacity: 0.48;
   background-image:
-    radial-gradient(circle, rgba(217, 215, 204, 0.2) 0 0.8px, transparent 1.5px),
-    radial-gradient(circle, rgba(154, 151, 142, 0.16) 0 0.8px, transparent 1.4px);
+    radial-gradient(circle, rgba(217, 215, 204, 0.32) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle, rgba(154, 151, 142, 0.24) 0 0.8px, transparent 1.4px);
   background-position: 0 0, 120px 160px;
   background-size: 280px 320px, 430px 520px;
   mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.72) 20%, rgba(0, 0, 0, 0.5) 68%, transparent 100%);
@@ -200,8 +200,18 @@ a {
 
 .hero-edge-vignette {
   background:
-    radial-gradient(ellipse at 50% 36%, transparent 0 34%, rgba(0, 0, 0, 0.56) 72%, rgba(0, 0, 0, 0.92) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.8), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.8));
+    radial-gradient(ellipse at 50% 36%, transparent 0 36%, rgba(0, 0, 0, 0.44) 74%, rgba(0, 0, 0, 0.9) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.74), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.74));
+}
+
+.hero-front-haze {
+  opacity: 0.34;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(217, 215, 204, 0.12), transparent 28%),
+    radial-gradient(ellipse at 47% 42%, rgba(89, 100, 112, 0.13), transparent 42%),
+    radial-gradient(ellipse at 52% 58%, rgba(182, 161, 118, 0.06), transparent 48%);
+  animation: hero-front-haze 19s ease-in-out infinite;
 }
 
 @keyframes dust-drift {
@@ -238,11 +248,11 @@ a {
 @keyframes hero-aura-pulse {
   0%,
   100% {
-    opacity: 0.48;
+    opacity: 0.64;
     filter: blur(20px) saturate(0.95);
   }
   50% {
-    opacity: 0.64;
+    opacity: 0.84;
     filter: blur(24px) saturate(1.08);
   }
 }
@@ -284,6 +294,18 @@ a {
   }
   100% {
     background-position: -70px -240px, 40px -180px;
+  }
+}
+
+@keyframes hero-front-haze {
+  0%,
+  100% {
+    opacity: 0.28;
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.42;
+    filter: blur(0.8px);
   }
 }
 
@@ -334,6 +356,10 @@ select.form-field option {
     opacity: 0.24;
     background-size: 360px 420px, 560px 660px;
   }
+
+  .hero-front-haze {
+    opacity: 0.24;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -351,7 +377,8 @@ select.form-field option {
   .hero-void-base,
   .hero-ether-field,
   .hero-lattice-thread,
-  .hero-ash-field {
+  .hero-ash-field,
+  .hero-front-haze {
     animation: none !important;
   }
 }
