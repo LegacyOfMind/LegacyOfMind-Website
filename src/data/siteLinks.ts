@@ -6,7 +6,7 @@ import { TikTokIcon } from '../components/PlatformIcons';
 // Replace these placeholder URLs when the live pages are ready.
 export const siteLinks = {
   steam: 'https://store.steampowered.com/app/PLACEHOLDER',
-  discord: 'https://discord.gg/T62RKQk5ar',
+  discord: 'https://discord.gg/RQTzKEXrY7',
   trailer: 'https://youtu.be/iPgmdf9mY8Y',
   youtube: 'https://www.youtube.com/@solusstudiosLoM',
   tiktok: 'https://www.tiktok.com/@legacyofminddev?is_from_webapp=1&sender_device=pc',
