@@ -198,6 +198,17 @@ a {
   animation: hero-ash-rise 46s linear infinite;
 }
 
+.hero-ambience-video {
+  opacity: 0;
+  object-position: center;
+  transform: translateZ(0);
+  transition: opacity 2s ease-in-out;
+}
+
+.hero-ambience-video.is-visible {
+  opacity: 0.86;
+}
+
 .hero-edge-vignette {
   background:
     radial-gradient(ellipse at 50% 36%, transparent 0 36%, rgba(0, 0, 0, 0.44) 74%, rgba(0, 0, 0, 0.9) 100%),
@@ -355,6 +366,10 @@ select.form-field option {
   .hero-ash-field {
     opacity: 0.24;
     background-size: 360px 420px, 560px 660px;
+  }
+
+  .hero-ambience-video.is-visible {
+    opacity: 0.72;
   }
 
   .hero-front-haze {

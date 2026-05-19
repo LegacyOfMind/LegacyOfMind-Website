@@ -1,16 +1,20 @@
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LockKeyhole, Youtube } from 'lucide-react';
-import type { PointerEvent } from 'react';
+import { useEffect, useState, type PointerEvent } from 'react';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { DiscordIcon } from './DiscordIcon';
 import { SteamIcon } from './PlatformIcons';
+
+const HERO_AMBIENCE_VIDEO = '/videos/hero-ambience.mp4';
 
 export function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 700], [0, 120]);
   const opacity = useTransform(scrollY, [0, 680], [1, 0.35]);
   const reduceMotion = useReducedMotion();
+  const [showAmbienceVideo, setShowAmbienceVideo] = useState(false);
+  const [ambienceVideoReady, setAmbienceVideoReady] = useState(false);
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
   const auraX = useSpring(useTransform(pointerX, [-1, 1], [-28, 28]), { stiffness: 42, damping: 24, mass: 0.8 });
@@ -32,6 +36,20 @@ export function Hero() {
     pointerX.set(0);
     pointerY.set(0);
   };
+
+  useEffect(() => {
+    setShowAmbienceVideo(false);
+
+    if (reduceMotion) {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      setShowAmbienceVideo(true);
+    }, 3000);
+
+    return () => window.clearTimeout(timer);
+  }, [reduceMotion]);
 
   return (
     <section
@@ -60,6 +78,27 @@ export function Hero() {
           className="h-auto w-[min(1100px,92vw)] animate-breathe object-contain opacity-55"
         />
       </motion.div>
+      {!reduceMotion && (
+        <video
+          aria-hidden="true"
+          tabIndex={-1}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onLoadedData={() => setAmbienceVideoReady(true)}
+          onError={() => {
+            setAmbienceVideoReady(false);
+            setShowAmbienceVideo(false);
+          }}
+          className={`hero-ambience-video pointer-events-none absolute inset-x-0 top-0 z-[15] h-screen w-full object-cover ${
+            showAmbienceVideo && ambienceVideoReady ? 'is-visible' : ''
+          }`}
+        >
+          <source src={HERO_AMBIENCE_VIDEO} type="video/mp4" />
+        </video>
+      )}
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.76)_26%,rgba(0,0,0,0.98)_100%)]" />
       <div aria-hidden="true" className="hero-front-haze pointer-events-none absolute inset-0 z-30" />
