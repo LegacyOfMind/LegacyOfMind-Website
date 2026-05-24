@@ -6,6 +6,7 @@ import { Hero } from '../components/Hero';
 import { NightmareSection } from '../components/NightmareSection';
 import { TikTokIcon } from '../components/PlatformIcons';
 import { SectionTitle } from '../components/SectionTitle';
+import { WorldGallery } from '../components/WorldGallery';
 import { nightmareSections } from '../data/nightmareSections';
 import { siteLinks } from '../data/siteLinks';
 
@@ -36,6 +37,8 @@ export function Home() {
       <Hero />
 
       <div className="relative z-10">
+        <WorldGallery />
+
         {nightmareSections.map((section, index) => (
           <NightmareSection key={section.title} section={section} reverse={index % 2 === 1} />
         ))}
