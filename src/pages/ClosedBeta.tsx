@@ -70,7 +70,7 @@ export function ClosedBeta() {
           Closed Beta Access
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-xl leading-9 text-muted">
-          Step into the barren world of Legacy of Mind before release. Share honest thoughts, capture early footage, and help sharpen the experience before launch.
+          Playtest Legacy of Mind and provide your feedback and suggestions, all with one button on the Discord server, so I know who is interested in receiving a FREE Steam key for the Legacy of Mind Closed Beta version.
         </p>
         <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
           <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon}>
