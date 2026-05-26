@@ -52,4 +52,20 @@ export const galleryImages: GalleryImage[] = [
     src: '/assets/images/gallery/gallery-12.png',
     alt: 'Starry mist-covered forest base in Legacy of Mind',
   },
+  {
+    src: '/assets/images/gallery/gallery-13.png',
+    alt: 'Gothic fortress entrance with hooded statues in Legacy of Mind',
+  },
+  {
+    src: '/assets/images/gallery/gallery-14.png',
+    alt: 'Fog-covered cliffside outpost in Legacy of Mind',
+  },
+  {
+    src: '/assets/images/gallery/gallery-15.png',
+    alt: 'Forest hut with smoke rising through the trees in Legacy of Mind',
+  },
+  {
+    src: '/assets/images/gallery/gallery-16.png',
+    alt: 'Wooden swamp village in misty woodland in Legacy of Mind',
+  },
 ];
