@@ -5,10 +5,10 @@ import { TikTokIcon } from '../components/PlatformIcons';
 
 // Replace these placeholder URLs when the live pages are ready.
 export const siteLinks = {
-  steam: 'https://store.steampowered.com/app/PLACEHOLDER',
+  steam: 'https://store.steampowered.com/app/4763910/Legacy_of_Mind/',
   discord: 'https://discord.gg/RQTzKEXrY7',
   trailer: 'https://youtu.be/iPgmdf9mY8Y',
-  youtube: 'https://www.youtube.com/@solusstudiosLoM',
+  youtube: 'https://youtu.be/iPgmdf9mY8Y',
   tiktok: 'https://www.tiktok.com/@legacyofminddev?is_from_webapp=1&sender_device=pc',
   instagram: 'https://www.instagram.com/legacyofminddev/',
   contactEmail: 'danny@solusstudios.uk',
