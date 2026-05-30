@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/closed-beta", "destination": "/index.html" },
+    { "source": "/community", "destination": "/index.html" },
+    { "source": "/my-story", "destination": "/index.html" },
+    { "source": "/legacy-of-mind-dark-fps-soulslike", "destination": "/index.html" },
+    { "source": "/submissions-dashboard", "destination": "/index.html" }
+  ]
+}

@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { ClosedBeta } from './pages/ClosedBeta';
 import { Community } from './pages/Community';
 import { Home } from './pages/Home';
+import { LegacyOfMindSoulslike } from './pages/LegacyOfMindSoulslike';
 import { MyStory } from './pages/MyStory';
 import { SubmissionsDashboard } from './pages/SubmissionsDashboard';
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/closed-beta" element={<ClosedBeta />} />
         <Route path="/community" element={<Community />} />
         <Route path="/my-story" element={<MyStory />} />
+        <Route path="/legacy-of-mind-dark-fps-soulslike" element={<LegacyOfMindSoulslike />} />
         <Route path="/submissions-dashboard" element={<SubmissionsDashboard />} />
       </Routes>
       <Footer />
