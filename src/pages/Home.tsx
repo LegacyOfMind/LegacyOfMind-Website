@@ -5,6 +5,7 @@ import { DiscordIcon } from '../components/DiscordIcon';
 import { Hero } from '../components/Hero';
 import { NightmareSection } from '../components/NightmareSection';
 import { TikTokIcon } from '../components/PlatformIcons';
+import { SEO } from '../components/SEO';
 import { SectionTitle } from '../components/SectionTitle';
 import { WorldGallery } from '../components/WorldGallery';
 import { nightmareSections } from '../data/nightmareSections';
@@ -34,6 +35,13 @@ const creatorChannels = [
 export function Home() {
   return (
     <>
+      <SEO
+        title="Legacy of Mind | The First Horror Soulslike"
+        description="Legacy of Mind is a first-person horror soulslike game made by the indie game studio: Solus Studios. Wishlist on Steam and join our Discord server where you can meet all types of gamers, developers, content creators and apply for playtesting of Legacy of Mind."
+        canonicalUrl="https://solusstudios.uk"
+        ogTitle="Legacy of Mind | The First Horror Soulslike"
+        ogDescription="Legacy of Mind is a first-person horror soulslike game made by the indie game studio: Solus Studios. Wishlist on Steam and join our Discord server where you can meet all types of gamers, developers, content creators and apply for playtesting of Legacy of Mind."
+      />
       <Hero />
 
       <div className="relative z-10">
