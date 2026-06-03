@@ -6,9 +6,9 @@ import { SEO } from '../components/SEO';
 import { SteamIcon } from '../components/PlatformIcons';
 import { siteLinks } from '../data/siteLinks';
 
-const pageTitle = 'Legacy of Mind: A Dark FPS Soulslike for Fans of Remnant, STALKER, and Elden Ring';
+const pageTitle = 'Legacy of Mind: The First Indie FPS Horror Soulslike for Fans of Remnant, STALKER, and Elden Ring';
 const pageDescription =
-  'Legacy of Mind is a dark FPS soulslike / first-person survival action RPG by Solus Studios, now live to wishlist on Steam. Watch the story trailer, join Discord, and apply for Closed Beta playtesting access.';
+  'Legacy of Mind is an indie FPS horror soulslike / first-person survival action RPG by Solus Studios, now live to wishlist on Steam. Watch the story trailer, join Discord, and apply for Closed Beta playtesting access.';
 const pageUrl = 'https://solusstudios.uk/legacy-of-mind-dark-fps-soulslike';
 
 const schema = {
@@ -19,7 +19,7 @@ const schema = {
       name: 'Legacy of Mind',
       url: pageUrl,
       description: pageDescription,
-      genre: ['Dark FPS soulslike', 'First-person survival action RPG', 'Survival action RPG', 'Indie soulslike'],
+      genre: ['Indie FPS horror soulslike', 'Dark FPS soulslike', 'First-person survival action RPG', 'Survival action RPG', 'Indie soulslike'],
       gamePlatform: ['PC', 'Steam'],
       operatingSystem: 'Windows',
       publisher: {
@@ -94,7 +94,7 @@ export function LegacyOfMindSoulslike() {
         title={pageTitle}
         description={pageDescription}
         canonicalUrl={pageUrl}
-        ogTitle="Legacy of Mind: A Dark FPS Soulslike from Solus Studios"
+        ogTitle="Legacy of Mind: An Indie FPS Horror Soulslike from Solus Studios"
         ogDescription="Wishlist Legacy of Mind on Steam, watch the official story trailer, join Discord, and apply for Closed Beta playtesting access."
         schema={schema}
       />
@@ -107,7 +107,7 @@ export function LegacyOfMindSoulslike() {
           <div className="relative mx-auto max-w-6xl">
             <p className="text-xs font-bold uppercase tracking-[0.38em] text-[var(--color-earth)]">Solus Studios</p>
             <h1 className="mt-5 max-w-5xl font-display text-4xl uppercase leading-tight tracking-[0.08em] text-[var(--color-parchment)] md:text-6xl">
-              Legacy of Mind: A Dark FPS Soulslike for Fans of Remnant, STALKER, and Elden Ring
+              Legacy of Mind: The First Indie FPS Horror Soulslike for Fans of Remnant, STALKER, and Elden Ring
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-stone/82 md:text-xl md:leading-9">
               A first-person survival action RPG from Solus Studios, now live to wishlist on Steam.
@@ -134,8 +134,8 @@ export function LegacyOfMindSoulslike() {
             a cost.
           </p>
           <p>
-            <strong className="font-semibold text-stone">Legacy of Mind</strong> is not just a horror game. It is a dark FPS
-            soulslike and first-person survival action RPG with horror atmosphere, survival pressure, boss fights,
+            <strong className="font-semibold text-stone">Legacy of Mind</strong> is not just a horror game. It is an indie FPS
+            horror soulslike and first-person survival action RPG with horror atmosphere, survival pressure, boss fights,
             exploration, weapon customisation, and a fractured world built to be pushed through piece by piece.
           </p>
           <p>
@@ -163,7 +163,7 @@ export function LegacyOfMindSoulslike() {
         <ArticleSection id="what-is-legacy-of-mind" eyebrow="The Game" title="What Is Legacy of Mind?">
           <p>
             <strong className="font-semibold text-stone">Legacy of Mind game</strong> is a dark first-person survival
-            action RPG and indie soulslike by <Link to="/" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Solus Studios</Link>, now live to wishlist on Steam.
+            action RPG and indie FPS horror soulslike by <Link to="/" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Solus Studios</Link>, now live to wishlist on Steam.
             It takes place in a fractured post-apocalyptic world where reality and dreamlike horror have collapsed into
             one broken landscape.
           </p>
@@ -174,7 +174,7 @@ export function LegacyOfMindSoulslike() {
           </p>
           <p>
             Legacy of Mind is built by a solo developer with a clear vision for a darker kind of first-person
-            soulslike. The aim is not to copy Elden Ring, Remnant, STALKER, or Metro, but to create something that can
+            horror soulslike. The aim is not to copy Elden Ring, Remnant, STALKER, or Metro, but to create something that can
             sit near those games for players who like bleak worlds, dangerous encounters, and atmosphere that lingers.
           </p>
         </ArticleSection>
@@ -192,7 +192,7 @@ export function LegacyOfMindSoulslike() {
           </p>
           <p>
             The goal is challenge without pretending frustration is the same thing as depth. If you enjoy progression,
-            tension, atmosphere, and surviving hostile zones, this dark FPS soulslike is one to watch.
+            tension, atmosphere, and surviving hostile zones, this indie FPS horror soulslike is one to watch.
           </p>
           <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="mt-3 w-full sm:w-auto">
             Wishlist Legacy of Mind on Steam
@@ -207,7 +207,7 @@ export function LegacyOfMindSoulslike() {
           </p>
           <p>
             Legacy of Mind uses first-person combat, firearms, weapon customisation, hostile environments, and resource
-            pressure inside a survival action RPG structure. It is closer to a dark FPS soulslike than a traditional
+            pressure inside a survival action RPG structure. It is closer to a dark indie FPS soulslike than a traditional
             horror game, and closer to a handcrafted indie RPG than a simple shooter.
           </p>
           <p>
@@ -255,7 +255,7 @@ export function LegacyOfMindSoulslike() {
           <p>
             Legacy of Mind is opening early access opportunities for selected streamers and content creators. The Closed
             Beta gives creators a chance to play unseen content before release, capture early footage from a dark
-            first-person soulslike, and decide whether it fits their audience.
+            indie FPS horror soulslike, and decide whether it fits their audience.
           </p>
           <p>
             Creators can stream, record, make videos, cut shorts, or simply give private feedback if they prefer. The
@@ -293,7 +293,7 @@ export function LegacyOfMindSoulslike() {
             of iteration.
           </p>
           <p>
-            The goal is simple: build the kind of dark FPS soulslike world the developer always wanted to play. A place
+            The goal is simple: build the kind of indie FPS horror soulslike world the developer always wanted to play. A place
             with ruined environments, strange enemies, first-person weapons, survival pressure, and bosses that make the
             world feel bigger than the player.
           </p>

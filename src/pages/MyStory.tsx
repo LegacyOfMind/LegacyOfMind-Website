@@ -60,7 +60,7 @@ export function MyStory() {
           My Story
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-muted md:text-xl md:leading-9">
-          The story behind Legacy of Mind, from a childhood love of monsters and soulslike worlds to a handmade indie horror RPG.
+          The story behind Legacy of Mind, from a childhood love of monsters and soulslike worlds to a handmade indie FPS horror soulslike.
         </p>
       </section>
 

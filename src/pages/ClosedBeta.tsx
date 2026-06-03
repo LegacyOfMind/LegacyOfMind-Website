@@ -53,7 +53,7 @@ const reasons = [
   },
   {
     icon: Video,
-    text: 'Capture early footage from a dark first-person soulslike before the wider Steam audience sees it.',
+    text: 'Capture early footage from a dark indie FPS horror soulslike before the wider Steam audience sees it.',
   },
   {
     icon: UserRound,
@@ -141,7 +141,7 @@ export function ClosedBeta() {
       <InfoSection
         eyebrow="Creators"
         title="For content creators"
-        text="Closed Beta is especially useful for creators who want early footage from a dark first-person soulslike. Clips, streams, shorts, reactions, and videos from beta players may be featured across YouTube, TikTok, and Instagram."
+        text="Closed Beta is especially useful for creators who want early footage from a dark indie FPS horror soulslike. Clips, streams, shorts, reactions, and videos from beta players may be featured across YouTube, TikTok, and Instagram."
       />
       <InfoSection
         eyebrow="Development"

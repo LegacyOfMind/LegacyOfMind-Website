@@ -88,7 +88,7 @@ export function Hero() {
       >
         <div aria-hidden="true" className="h-[13vh] min-h-20 md:h-[16vh]" />
         <p className="relative -translate-y-8 text-xs font-bold uppercase tracking-[0.42em] text-muted md:-translate-y-12">
-          THE FIRST INDIE FPS SOULSLIKE LIVE NOW ON STEAM
+          THE FIRST INDIE FPS HORROR SOULSLIKE
         </p>
         <div className="mt-[44vh] w-full md:mt-[48vh]">
           <p className="mx-auto max-w-2xl font-display text-2xl leading-9 tracking-[0.08em] text-stone/90 drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)] md:text-3xl">

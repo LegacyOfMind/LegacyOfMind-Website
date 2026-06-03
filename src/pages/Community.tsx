@@ -54,7 +54,7 @@ export function Community() {
           Community
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-xl leading-9 text-muted">
-          Creators, playtesters, fastest survivors, and the people stepping into the first-person soulslike world early.
+          Creators, playtesters, fastest survivors, and the people stepping into the indie FPS horror soulslike world early.
         </p>
         <p className="mx-auto mt-7 max-w-4xl leading-8 text-muted">
           Community clips may be featured across official Legacy of Mind channels. Every featured clip will credit the streamer or creator who shared it through Discord.
