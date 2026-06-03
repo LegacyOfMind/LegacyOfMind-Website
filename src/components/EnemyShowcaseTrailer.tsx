@@ -21,16 +21,15 @@ export function EnemyShowcaseTrailer() {
         className="relative mx-auto max-w-7xl"
       >
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.34em] text-[var(--color-earth)]">Enemy Showcase Trailer</p>
+          <p className="text-xs font-bold uppercase tracking-[0.34em] text-[var(--color-earth)]">Boss Encounter Trailer</p>
           <h2 id="enemy-showcase-title" className="mt-4 font-display text-3xl uppercase leading-tight tracking-[0.08em] text-stone md:text-5xl">
-            Enemy Showcase Trailer
+            The Gravestalker
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-muted md:text-lg">
-            Get a first look at the creatures, threats, and brutal encounters waiting inside Legacy of Mind.
+            Legacy of Mind is packed with soulslike boss encounters and epic music, with horror playing a big role in keeping the player in a panicked state.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-muted/90 md:text-base">
-            Legacy of Mind is built around more than atmosphere. This indie FPS horror soulslike is filled with hostile creatures,
-            corrupted beings, and encounters designed to make every step through the map feel dangerous.
+            Watch The Gravestalker trailer for a glimpse at one of the threats waiting beyond the ruins.
           </p>
         </div>
 
@@ -47,11 +46,11 @@ export function EnemyShowcaseTrailer() {
                 playsInline
                 preload="metadata"
                 poster={posterSrc}
-                title="Enemy Showcase Trailer for Legacy of Mind"
-                aria-label="Enemy Showcase Trailer for Legacy of Mind"
+                title="The Gravestalker trailer for Legacy of Mind"
+                aria-label="The Gravestalker trailer for Legacy of Mind"
               >
                 <source src={trailerSrc} type="video/mp4" />
-                Your browser does not support the embedded Enemy Showcase Trailer video.
+                Your browser does not support the embedded Gravestalker trailer video.
               </video>
               <div
                 aria-hidden="true"
@@ -61,7 +60,7 @@ export function EnemyShowcaseTrailer() {
           </div>
           <div className="mt-5 flex items-center justify-center gap-3 text-center text-xs uppercase tracking-[0.22em] text-muted">
             <PlayCircle aria-hidden="true" className="h-4 w-4 shrink-0 text-stone/70" />
-            <span>Watch the Enemy Showcase Trailer for a glimpse at the horrors beyond the ruins.</span>
+            <span>Watch The Gravestalker trailer for a glimpse at the horrors beyond the ruins.</span>
           </div>
         </div>
       </motion.div>
