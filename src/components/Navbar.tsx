@@ -10,6 +10,8 @@ const socialHoverClasses = {
   youtube: 'hover:border-[#b83333]/55 hover:text-[#f0a0a0] hover:shadow-[0_0_18px_rgba(190,44,44,0.16)]',
   tiktok: 'hover:border-[#36d4d0]/45 hover:text-[#bdf4f2] hover:shadow-[0_0_18px_rgba(54,212,208,0.12)]',
   instagram: 'hover:border-[#b45a7c]/50 hover:text-[#e0afc0] hover:shadow-[0_0_18px_rgba(180,90,124,0.12)]',
+  x: 'hover:border-stone/55 hover:text-stone hover:shadow-[0_0_18px_rgba(217,215,204,0.12)]',
+  reddit: 'hover:border-[#b87555]/45 hover:text-[#e1b79d] hover:shadow-[0_0_18px_rgba(184,117,85,0.12)]',
 };
 
 export function Navbar() {

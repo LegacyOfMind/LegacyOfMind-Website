@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { LockKeyhole, Youtube } from 'lucide-react';
 import type { PointerEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { DiscordIcon } from './DiscordIcon';
@@ -70,9 +71,9 @@ export function Hero() {
       />
       <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-screen items-center justify-center">
         <img
-          src="/assets/logos/LoM Text Logo.png"
+          src="/assets/images/home/new-thumbnail.png"
           alt=""
-          className="h-auto w-[min(1100px,92vw)] animate-breathe object-contain opacity-55"
+          className="h-auto w-[min(1540px,96vw)] animate-breathe object-contain opacity-70 drop-shadow-[0_0_60px_rgba(217,215,204,0.08)]"
         />
       </motion.div>
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
@@ -87,7 +88,7 @@ export function Hero() {
         className="relative z-40 mx-auto flex w-full max-w-5xl flex-col items-center text-center"
       >
         <div aria-hidden="true" className="h-[13vh] min-h-20 md:h-[16vh]" />
-        <p className="relative -translate-y-8 text-xs font-bold uppercase tracking-[0.42em] text-muted md:-translate-y-12">
+        <p className="relative -translate-y-8 max-w-4xl text-[0.8rem] font-bold uppercase leading-7 tracking-[0.24em] text-stone/95 drop-shadow-[0_0_18px_rgba(217,215,204,0.38),0_10px_24px_rgba(0,0,0,0.95)] sm:text-sm sm:tracking-[0.3em] md:-translate-y-12 md:text-lg md:tracking-[0.34em]">
           THE FIRST INDIE FPS HORROR SOULSLIKE
         </p>
         <div className="mt-[44vh] w-full md:mt-[48vh]">
@@ -98,12 +99,16 @@ export function Hero() {
             <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="w-full sm:w-auto">
               Wishlist Now on Steam
             </CTAButton>
-            <CTAButton href="/closed-beta" variant="discord" icon={DiscordIcon} className="w-full sm:w-auto">
+            <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon} className="w-full sm:w-auto">
               Playtest Now
             </CTAButton>
           </div>
           <p className="mx-auto mt-5 max-w-3xl text-sm font-medium leading-7 text-stone/80 md:text-base">
             Our Discord welcomes casual players, soulslike fans, indie devs seeking advice, creators growing their audience, and anyone who wants to playtest or share what they are building.
+            <br className="hidden sm:block" />
+            <Link to="/closed-beta" className="text-[var(--color-parchment)] underline decoration-stone/30 underline-offset-4 transition hover:text-stone">
+              Read more about Closed Beta access.
+            </Link>
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <CTAButton

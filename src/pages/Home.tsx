@@ -5,7 +5,7 @@ import { DiscordIcon } from '../components/DiscordIcon';
 import { EnemyShowcaseTrailer } from '../components/EnemyShowcaseTrailer';
 import { Hero } from '../components/Hero';
 import { NightmareSection } from '../components/NightmareSection';
-import { TikTokIcon } from '../components/PlatformIcons';
+import { RedditIcon, TikTokIcon, XIcon } from '../components/PlatformIcons';
 import { SEO } from '../components/SEO';
 import { SectionTitle } from '../components/SectionTitle';
 import { WorldGallery } from '../components/WorldGallery';
@@ -30,6 +30,18 @@ const creatorChannels = [
     href: siteLinks.instagram,
     icon: Instagram,
     variant: 'instagram',
+  },
+  {
+    label: 'X',
+    href: siteLinks.x,
+    icon: XIcon,
+    variant: 'x',
+  },
+  {
+    label: 'Reddit',
+    href: siteLinks.reddit,
+    icon: RedditIcon,
+    variant: 'reddit',
   },
 ] as const;
 

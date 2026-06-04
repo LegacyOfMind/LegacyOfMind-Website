@@ -2,7 +2,7 @@ import { Instagram, Youtube } from 'lucide-react';
 import { CTAButton } from '../components/CTAButton';
 import { DiscordIcon } from '../components/DiscordIcon';
 import { Leaderboard } from '../components/Leaderboard';
-import { TikTokIcon } from '../components/PlatformIcons';
+import { RedditIcon, TikTokIcon, XIcon } from '../components/PlatformIcons';
 import { SectionTitle } from '../components/SectionTitle';
 import { siteLinks } from '../data/siteLinks';
 
@@ -42,6 +42,18 @@ const creatorChannels = [
     href: siteLinks.instagram,
     icon: Instagram,
     variant: 'instagram',
+  },
+  {
+    label: 'X',
+    href: siteLinks.x,
+    icon: XIcon,
+    variant: 'x',
+  },
+  {
+    label: 'Reddit',
+    href: siteLinks.reddit,
+    icon: RedditIcon,
+    variant: 'reddit',
   },
 ] as const;
 

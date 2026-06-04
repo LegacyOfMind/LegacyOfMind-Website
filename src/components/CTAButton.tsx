@@ -2,7 +2,18 @@ import { ArrowRight } from 'lucide-react';
 import type { ComponentType, ReactNode, SVGProps } from 'react';
 import { Link } from 'react-router-dom';
 
-export type CTAButtonVariant = 'primary' | 'secondary' | 'ghost' | 'steam' | 'discord' | 'youtube' | 'tiktok' | 'instagram' | 'upload';
+export type CTAButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'steam'
+  | 'discord'
+  | 'youtube'
+  | 'tiktok'
+  | 'instagram'
+  | 'x'
+  | 'reddit'
+  | 'upload';
 
 type CTAButtonProps = {
   children: ReactNode;
@@ -31,6 +42,10 @@ const variants = {
     'border-[#36d4d0]/30 bg-[linear-gradient(135deg,#070909,#111114_56%,#171319)] text-stone shadow-[0_0_28px_rgba(54,212,208,0.08)] hover:-translate-y-0.5 hover:border-[#36d4d0]/55 hover:shadow-[0_0_34px_rgba(54,212,208,0.14)]',
   instagram:
     'border-[#b45a7c]/35 bg-[linear-gradient(135deg,#10090d,#1b111b_56%,#241326)] text-stone shadow-[0_0_28px_rgba(180,90,124,0.1)] hover:-translate-y-0.5 hover:border-[#d18aa5]/55 hover:shadow-[0_0_34px_rgba(180,90,124,0.16)]',
+  x:
+    'border-stone/28 bg-[linear-gradient(135deg,#050505,#101010_56%,#181818)] text-stone shadow-[0_0_28px_rgba(217,215,204,0.08)] hover:-translate-y-0.5 hover:border-stone/55 hover:shadow-[0_0_34px_rgba(217,215,204,0.12)]',
+  reddit:
+    'border-[#b87555]/30 bg-[linear-gradient(135deg,#120906,#1b0f0a_56%,#241610)] text-stone shadow-[0_0_28px_rgba(184,117,85,0.08)] hover:-translate-y-0.5 hover:border-[#d19a7c]/55 hover:shadow-[0_0_34px_rgba(184,117,85,0.14)]',
   upload:
     'border-stone/35 bg-white/[0.03] text-stone shadow-[0_0_28px_rgba(217,215,204,0.06)] hover:-translate-y-0.5 hover:border-stone/70 hover:bg-white/[0.08] hover:shadow-[0_0_36px_rgba(217,215,204,0.12)]',
 };
@@ -44,6 +59,8 @@ const iconMotion: Record<CTAButtonVariant, string> = {
   youtube: 'group-hover:translate-x-0.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_rgba(220,72,72,0.8)]',
   tiktok: 'group-hover:drop-shadow-[0_0_8px_rgba(54,212,208,0.75)]',
   instagram: 'group-hover:drop-shadow-[0_0_8px_rgba(209,138,165,0.75)]',
+  x: 'group-hover:drop-shadow-[0_0_8px_rgba(217,215,204,0.6)]',
+  reddit: 'group-hover:drop-shadow-[0_0_8px_rgba(209,154,124,0.65)]',
   upload: 'group-hover:-translate-y-0.5',
 };
 
