@@ -4,6 +4,7 @@ import { CTAButton } from '../components/CTAButton';
 import { DiscordIcon } from '../components/DiscordIcon';
 import { EnemyShowcaseTrailer } from '../components/EnemyShowcaseTrailer';
 import { Hero } from '../components/Hero';
+import { HorrorAspectEdit } from '../components/HorrorAspectEdit';
 import { NightmareSection } from '../components/NightmareSection';
 import { RedditIcon, TikTokIcon, XIcon } from '../components/PlatformIcons';
 import { SEO } from '../components/SEO';
@@ -59,6 +60,7 @@ export function Home() {
 
       <div className="relative z-10">
         <EnemyShowcaseTrailer />
+        <HorrorAspectEdit />
         <WorldGallery />
 
         {nightmareSections.map((section, index) => (
