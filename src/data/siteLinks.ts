@@ -14,6 +14,8 @@ export const siteLinks = {
   x: 'https://x.com/LegacyofMinddev',
   reddit: 'https://www.reddit.com/r/LegacyofMind/',
   contactEmail: 'danny@solusstudios.uk',
+  contactPhone: '07484635564',
+  contactPhoneHref: 'tel:+447484635564',
 };
 
 export const navLinks = [

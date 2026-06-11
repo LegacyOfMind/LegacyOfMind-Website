@@ -1,3 +1,4 @@
+import { Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { navLinks, siteLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
@@ -8,7 +9,7 @@ import { SocialLinks } from './SocialLinks';
 export function Footer() {
   return (
     <footer className="relative z-10 border-t border-border bg-black px-4 py-12 lg:px-6">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_0.95fr_1.1fr]">
         <div>
           <img src="/assets/logos/LoM Text Logo.png" alt="Legacy of Mind" className="h-auto w-64 max-w-full object-contain" />
           <p className="mt-5 max-w-sm text-muted">Survive the nightmares that learned to hunt.</p>
@@ -34,6 +35,26 @@ export function Footer() {
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.28em] text-stone">Social</h2>
           <SocialLinks showLabels className="mt-5" />
+        </div>
+        <div>
+          <h2 className="text-xs font-bold uppercase tracking-[0.28em] text-stone">Contact</h2>
+          <p className="mt-5 text-sm leading-7 text-muted">For Legacy of Mind enquiries, creator questions, or direct contact.</p>
+          <address className="mt-5 grid gap-3 not-italic">
+            <a
+              href={`mailto:${siteLinks.contactEmail}`}
+              className="group flex items-center gap-3 border border-stone/12 bg-white/[0.025] px-4 py-3 text-sm text-muted transition hover:-translate-y-0.5 hover:border-stone/28 hover:bg-white/[0.045] hover:text-stone"
+            >
+              <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-stone/70 transition group-hover:text-stone" />
+              <span>{siteLinks.contactEmail}</span>
+            </a>
+            <a
+              href={siteLinks.contactPhoneHref}
+              className="group flex items-center gap-3 border border-stone/12 bg-white/[0.025] px-4 py-3 text-sm text-muted transition hover:-translate-y-0.5 hover:border-stone/28 hover:bg-white/[0.045] hover:text-stone"
+            >
+              <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-stone/70 transition group-hover:text-stone" />
+              <span>{siteLinks.contactPhone}</span>
+            </a>
+          </address>
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-border pt-6 text-xs text-muted">
