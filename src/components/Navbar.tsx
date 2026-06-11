@@ -32,24 +32,24 @@ export function Navbar() {
       }`}
     >
       <nav aria-label="Primary navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src="/assets/logos/LoM Logo.png"
             alt="Legacy of Mind mark"
             className="h-10 w-10 object-contain"
           />
-          <span className="hidden font-display text-sm uppercase tracking-[0.28em] text-stone sm:inline">
+          <span className="hidden whitespace-nowrap font-display text-sm uppercase tracking-[0.28em] text-stone sm:inline">
             Legacy of Mind
           </span>
         </Link>
 
-        <div className="hidden items-center gap-5 lg:ml-10 lg:flex xl:ml-14">
+        <div className="hidden items-center gap-5 lg:ml-8 lg:flex xl:ml-10">
           {headerNavLinks.map((link) => (
             <NavLink
               key={link.href}
               to={link.href}
               className={({ isActive }) =>
-                `text-xs font-semibold uppercase tracking-[0.18em] transition hover:text-stone ${
+                `whitespace-nowrap text-center text-xs font-semibold uppercase tracking-[0.18em] transition hover:text-stone ${
                   isActive ? 'text-stone' : 'text-muted'
                 }`
               }
