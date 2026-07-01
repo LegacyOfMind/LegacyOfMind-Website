@@ -70,11 +70,19 @@ export function Hero() {
         className="hero-cursor-aura pointer-events-none absolute z-[6]"
       />
       <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-screen items-center justify-center">
-        <img
-          src="/assets/images/home/new-thumbnail.png"
-          alt=""
-          className="h-auto w-[min(1540px,96vw)] animate-breathe object-contain opacity-70 drop-shadow-[0_0_60px_rgba(217,215,204,0.08)]"
-        />
+        <picture>
+          <source srcSet="/assets/images/home/new-thumbnail.webp" type="image/webp" />
+          <img
+            src="/assets/images/home/new-thumbnail.png"
+            alt=""
+            width="1682"
+            height="935"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+            className="h-auto w-[min(1540px,96vw)] animate-breathe object-contain opacity-70 drop-shadow-[0_0_60px_rgba(217,215,204,0.08)]"
+          />
+        </picture>
       </motion.div>
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.76)_26%,rgba(0,0,0,0.98)_100%)]" />
