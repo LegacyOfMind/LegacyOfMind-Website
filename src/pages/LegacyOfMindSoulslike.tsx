@@ -6,9 +6,9 @@ import { SEO } from '../components/SEO';
 import { SteamIcon } from '../components/PlatformIcons';
 import { siteLinks } from '../data/siteLinks';
 
-const pageTitle = 'Legacy of Mind: The First Indie FPS Horror Soulslike for Fans of Remnant, STALKER, and Elden Ring';
+const pageTitle = 'Legacy of Mind: The First Gothic Soulslike FPS for Fans of Remnant, STALKER, and Elden Ring';
 const pageDescription =
-  'Legacy of Mind is an indie FPS horror soulslike / first-person survival action RPG by Solus Studios, now live to wishlist on Steam. Watch the story trailer, join Discord, and apply for Closed Beta playtesting access.';
+  'Legacy of Mind is the first gothic soulslike FPS where nightmares and reality have merged. Explore a handcrafted post-apocalyptic world, face colossal Monarchs, and wishlist on Steam.';
 const pageUrl = 'https://solusstudios.uk/legacy-of-mind-dark-fps-soulslike';
 
 const schema = {
@@ -19,7 +19,7 @@ const schema = {
       name: 'Legacy of Mind',
       url: pageUrl,
       description: pageDescription,
-      genre: ['Indie FPS horror soulslike', 'Dark FPS soulslike', 'First-person survival action RPG', 'Survival action RPG', 'Indie soulslike'],
+      genre: ['Gothic soulslike FPS', 'FPS soulslike horror game', 'Action', 'Adventure', 'Indie', 'RPG'],
       gamePlatform: ['PC', 'Steam'],
       operatingSystem: 'Windows',
       publisher: {
@@ -51,17 +51,17 @@ const featureCards = [
   {
     icon: Skull,
     title: 'Bosses and pressure',
-    text: 'Monarchs, hostile zones, and enemy encounters are built around tension, learning, and surviving under pressure.',
+    text: 'Explore Monarch-ruled zones, defeat unique elite enemies, and prepare for the brutal first-person soulslike boss controlling each region.',
   },
   {
     icon: Shield,
     title: 'Survival RPG systems',
-    text: 'Scavenge resources, unlock perks, customise weapons, and push deeper into a world that does not feel safe.',
+    text: 'Loot abandoned buildings, craft buffs and consumables, and unlock four specialised perk trees to fit your playstyle.',
   },
   {
     icon: RadioTower,
     title: 'First-person combat',
-    text: 'Firearms and weapon customisation sit inside a darker survival action RPG structure, not a simple shooter loop.',
+    text: 'Guns are your primary weapon, while attachments change how you approach each encounter and face the final Monarch.',
   },
 ];
 
@@ -94,8 +94,8 @@ export function LegacyOfMindSoulslike() {
         title={pageTitle}
         description={pageDescription}
         canonicalUrl={pageUrl}
-        ogTitle="Legacy of Mind: An Indie FPS Horror Soulslike from Solus Studios"
-        ogDescription="Wishlist Legacy of Mind on Steam, watch the official story trailer, join Discord, and apply for Closed Beta playtesting access."
+        ogTitle="Legacy of Mind: The First Gothic Soulslike FPS"
+        ogDescription="Explore a handcrafted post-apocalyptic world merged with nightmares, survive tactical first-person combat, and face the Monarchs."
         schema={schema}
       />
 
@@ -107,10 +107,10 @@ export function LegacyOfMindSoulslike() {
           <div className="relative mx-auto max-w-6xl">
             <p className="text-xs font-bold uppercase tracking-[0.38em] text-[var(--color-earth)]">Solus Studios</p>
             <h1 className="mt-5 max-w-5xl font-display text-4xl uppercase leading-tight tracking-[0.08em] text-[var(--color-parchment)] md:text-6xl">
-              Legacy of Mind: The First Indie FPS Horror Soulslike for Fans of Remnant, STALKER, and Elden Ring
+              Legacy of Mind: The First Gothic Soulslike FPS for Fans of Remnant, STALKER, and Elden Ring
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-stone/82 md:text-xl md:leading-9">
-              A first-person survival action RPG from Solus Studios, now live to wishlist on Steam.
+              A handcrafted FPS soulslike horror game from Solus Studios, now live to wishlist on Steam.
             </p>
 
             <div className="mt-9 grid gap-4 sm:grid-cols-3">
@@ -134,9 +134,9 @@ export function LegacyOfMindSoulslike() {
             a cost.
           </p>
           <p>
-            <strong className="font-semibold text-stone">Legacy of Mind</strong> is not just a horror game. It is an indie FPS
-            horror soulslike and first-person survival action RPG with horror atmosphere, survival pressure, boss fights,
-            exploration, weapon customisation, and a fractured world built to be pushed through piece by piece.
+            <strong className="font-semibold text-stone">Legacy of Mind</strong> is the first FPS soulslike horror game. It
+            blends tactical first-person combat, survival horror tension, RPG progression, atmospheric exploration, weapon
+            customisation, and Monarch boss encounters into a dark single-player journey.
           </p>
           <p>
             If you are looking for an upcoming indie game that sits somewhere between a soulslike FPS, a dark indie RPG,
@@ -162,15 +162,18 @@ export function LegacyOfMindSoulslike() {
 
         <ArticleSection id="what-is-legacy-of-mind" eyebrow="The Game" title="What Is Legacy of Mind?">
           <p>
-            <strong className="font-semibold text-stone">Legacy of Mind game</strong> is a dark first-person survival
-            action RPG and indie FPS horror soulslike by <Link to="/" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Solus Studios</Link>, now live to wishlist on Steam.
-            It takes place in a fractured post-apocalyptic world where reality and dreamlike horror have collapsed into
-            one broken landscape.
+            <strong className="font-semibold text-stone">Legacy of Mind game</strong> is the first gothic soulslike FPS by{' '}
+            <Link to="/" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Solus Studios</Link>, now live to wishlist on Steam.
+            It is set in a ruined post-apocalyptic world where reality and the nightmare world have merged.
           </p>
           <p>
-            Players explore hostile zones, scavenge resources, customise weapons, unlock perks, survive enemies, and face
-            powerful bosses known as Monarchs. The world is dark and psychological, but the focus is broader than pure
-            horror: combat, progression, survival choices, and exploration all matter.
+            Every interior and exterior in the open world is handcrafted, with no procedural generation. Players cross
+            ruined settlements, dying forests, frozen peaks, and haunted deserts now occupied by the Umbrae.
+          </p>
+          <p>
+            Survival means tactical first-person soulslike combat, looting abandoned buildings, crafting buffs and
+            consumables, customising guns with attachments, and unlocking four specialised perk trees. Each region builds
+            toward the final Monarch controlling it, with sub-areas, resources, elite enemies, and upgrades along the way.
           </p>
           <p>
             Legacy of Mind is built by a solo developer with a clear vision for a darker kind of first-person
@@ -192,7 +195,7 @@ export function LegacyOfMindSoulslike() {
           </p>
           <p>
             The goal is challenge without pretending frustration is the same thing as depth. If you enjoy progression,
-            tension, atmosphere, and surviving hostile zones, this indie FPS horror soulslike is one to watch.
+            tension, atmosphere, and surviving hostile zones, this gothic soulslike FPS is one to watch.
           </p>
           <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="mt-3 w-full sm:w-auto">
             Wishlist Legacy of Mind on Steam
@@ -206,9 +209,9 @@ export function LegacyOfMindSoulslike() {
             scavenging, bleak environments, and post-apocalyptic atmosphere.
           </p>
           <p>
-            Legacy of Mind uses first-person combat, firearms, weapon customisation, hostile environments, and resource
-            pressure inside a survival action RPG structure. It is closer to a dark indie FPS soulslike than a traditional
-            horror game, and closer to a handcrafted indie RPG than a simple shooter.
+            Legacy of Mind uses tactical first-person soulslike combat, with guns as the primary weapons and attachments
+            that change how encounters are approached. Looting, crafting, perk progression, hostile environments, and
+            resource pressure place it closer to a dark survival action RPG than a traditional horror game or simple shooter.
           </p>
           <p>
             If you like games where the world itself feels threatening, the <a href={siteLinks.trailer} target="_blank" rel="noopener noreferrer" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Legacy of Mind Story Trailer</a> is the fastest way to understand the tone.
@@ -255,7 +258,7 @@ export function LegacyOfMindSoulslike() {
           <p>
             Legacy of Mind is opening early access opportunities for selected streamers and content creators. The Closed
             Beta gives creators a chance to play unseen content before release, capture early footage from a dark
-            indie FPS horror soulslike, and decide whether it fits their audience.
+            gothic soulslike FPS, and decide whether it fits their audience.
           </p>
           <p>
             Creators can stream, record, make videos, cut shorts, or simply give private feedback if they prefer. The
@@ -293,9 +296,9 @@ export function LegacyOfMindSoulslike() {
             of iteration.
           </p>
           <p>
-            The goal is simple: build the kind of indie FPS horror soulslike world the developer always wanted to play. A place
-            with ruined environments, strange enemies, first-person weapons, survival pressure, and bosses that make the
-            world feel bigger than the player.
+            The goal is simple: build the kind of gothic soulslike FPS world the developer always wanted to play. A
+            handcrafted place of ruined settlements, dying forests, frozen peaks, haunted deserts, tactical first-person
+            combat, and colossal Monarchs.
           </p>
           <p>
             You can read more on the <Link to="/my-story" className="text-[var(--color-parchment)] underline decoration-stone/25 underline-offset-4 hover:text-stone">Solus Studios developer story page</Link>, or start with the Steam page, trailer, and Discord if you just want to get closer to the game.

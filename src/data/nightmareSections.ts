@@ -13,7 +13,7 @@ export const nightmareSections: NightmareSectionData[] = [
   {
     eyebrow: 'Fractured Reality',
     title: 'A world where thought became flesh',
-    text: 'Legacy of Mind is a dark, gothic fantasy, soulslike and FPS set in a fractured world where nightmares and reality have merged.',
+    text: 'Legacy of Mind is the first gothic soulslike FPS where nightmares and reality have merged into one ruined post-apocalyptic world.',
     imageLabel: 'Gameplay Screenshot Placeholder',
     imageSrc: '/assets/images/home/fractured-reality.png',
     imageAlt: 'A vast gothic city rising around a glowing fire in the fractured world of Legacy of Mind.',
@@ -22,7 +22,7 @@ export const nightmareSections: NightmareSectionData[] = [
   {
     eyebrow: 'The Umbrae',
     title: 'The Umbrae are hunting',
-    text: 'Born from fear and trauma, the Umbrae stalk the broken world in forms the mind was never meant to survive.',
+    text: 'Ruined settlements, dying forests, frozen peaks, and haunted deserts are now stalked by the Umbrae.',
     imageLabel: 'Umbrae Encounter Placeholder',
     imageSrc: '/assets/images/home/umbrae-encounter.png',
     imageAlt: 'An Umbrae beneath a glowing portal in an overgrown, abandoned settlement.',
@@ -40,7 +40,7 @@ export const nightmareSections: NightmareSectionData[] = [
   {
     eyebrow: 'Survival RPG',
     title: 'Scavenge. Adapt. Endure.',
-    text: 'Scavenge what you can. Survive what you find. Customise your weapons, shape your build, and keep moving through the dark.',
+    text: 'Loot abandoned buildings, craft buffs and consumables, customise your weapons, and unlock four specialised perk trees to shape your playstyle.',
     imageLabel: 'Ruins Exploration Placeholder',
     imageSrc: '/assets/images/home/4.png',
     imageAlt: 'A firelit ruined forest settlement under a dark mountain sky.',

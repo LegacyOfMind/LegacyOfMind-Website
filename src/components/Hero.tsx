@@ -38,10 +38,10 @@ export function Hero() {
             Legacy <span className="block text-[var(--color-parchment)]">of Mind</span>
           </h1>
           <p className="mt-6 font-display text-xl uppercase text-stone/88 sm:text-2xl lg:text-3xl">
-            One of the first FPS soulslikes
+            The First FPS Soulslike
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-            Enter a handmade post-apocalyptic world where first-person combat, survival pressure, weapon customisation, and nightmare boss encounters collide.
+            Legacy of Mind is the first gothic soulslike FPS where nightmares and reality have merged. Face colossal Monarchs that rule over the broken world twisted by living nightmares and unlock otherworldy powers hidden within your mind, but with every power unlocked, something in the dark wakes with you...
           </p>
 
           <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2 sm:gap-4">

@@ -26,23 +26,23 @@ import { siteLinks } from '../data/siteLinks';
 
 const gamePillars = [
   {
-    title: 'First-person soulslike',
-    text: 'Read every encounter, commit to your build, and survive punishing fights through a first-person arsenal.',
+    title: 'Tactical soulslike combat',
+    text: 'Fight through tactical first-person soulslike combat where guns, attachments, and preparation shape every encounter.',
     icon: Crosshair,
   },
   {
-    title: 'Handmade world',
-    text: 'Explore dark post-apocalyptic environments built by hand, with each ruin, path, and threat placed with intent.',
+    title: 'Handcrafted open world',
+    text: 'Explore handcrafted interiors and exteriors across ruined settlements, dying forests, frozen peaks, and haunted deserts. No procedural generation.',
     icon: Map,
   },
   {
-    title: 'Survival pressure',
-    text: 'Scavenge what you can, customise your weapons, unlock perks, and decide what is worth risking your life for.',
+    title: 'Survive and specialise',
+    text: 'Loot abandoned buildings, craft buffs and consumables, and unlock four specialised perk trees built for different playstyles.',
     icon: Wrench,
   },
   {
     title: 'Monarch encounters',
-    text: 'Push through hostile zones and learn the nightmare bosses that rule them before they learn you.',
+    text: 'Explore each Monarch-ruled zone, gather resources, defeat elite enemies, and prepare for a brutal first-person soulslike boss fight.',
     icon: Crown,
   },
 ];
@@ -194,11 +194,11 @@ export function Home() {
   return (
     <>
       <SEO
-        title="Legacy of Mind | The First Indie FPS Horror Soulslike"
-        description="Legacy of Mind is a solo-developed indie horror FPS soulslike releasing Halloween 2026. Wishlist on Steam, follow Steam Next Fest, and join the Closed Beta playtest."
+        title="Legacy of Mind | The First FPS Soulslike"
+        description="Legacy of Mind is the first gothic soulslike FPS where nightmares and reality have merged. Face colossal Monarchs, unlock otherworldy powers, and wishlist on Steam."
         canonicalUrl="https://solusstudios.uk"
-        ogTitle="Legacy of Mind | Indie Horror FPS Soulslike"
-        ogDescription="A handmade horror FPS soulslike releasing Halloween 2026. Wishlist on Steam and join the Closed Beta playtest."
+        ogTitle="Legacy of Mind | The First FPS Soulslike"
+        ogDescription="Enter a handcrafted post-apocalyptic world where nightmares and reality have merged. Face the Monarchs and wishlist Legacy of Mind on Steam."
       />
       <Hero />
 
@@ -214,7 +214,7 @@ export function Home() {
               </div>
               <div>
                 <p className="max-w-3xl text-base leading-8 text-muted sm:text-lg">
-                  Legacy of Mind is a dark first-person survival action RPG built by one developer. Explore a fractured handmade world, scavenge resources, customise firearms, shape your perks, and face the Monarchs: nightmare bosses that control each region.
+                  Legacy of Mind is the first FPS soulslike horror game, set in a ruined post-apocalyptic world merged with the nightmare world. Explore a handcrafted open world, survive tactical first-person combat, loot abandoned buildings, customise your weapons, unlock four specialised perk trees, and prepare to face the Monarch ruling each region.
                 </p>
                 <a
                   href={siteLinks.steam}
