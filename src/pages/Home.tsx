@@ -10,6 +10,7 @@ import {
   KeyRound,
   Map,
   MessageSquareText,
+  PlayCircle,
   Radio,
   Users,
   Wrench,
@@ -97,6 +98,25 @@ const primaryLinks: HomeLink[] = [
     external: false,
     icon: KeyRound,
     tone: 'beta',
+  },
+];
+
+const trailerLinks: HomeLink[] = [
+  {
+    title: 'The Final Call',
+    description: 'Watch The Final Call and step closer to the world waiting beyond the signal.',
+    href: siteLinks.finalCall,
+    external: true,
+    icon: PlayCircle,
+    tone: 'youtube',
+  },
+  {
+    title: 'Watch OFFICIAL Trailer #2',
+    description: 'Continue into Legacy of Mind with the second official trailer.',
+    href: siteLinks.trailerTwo,
+    external: true,
+    icon: PlayCircle,
+    tone: 'youtube',
   },
 ];
 
@@ -242,6 +262,12 @@ export function Home() {
                   <h3 className="mt-8 font-display text-xl uppercase leading-tight text-stone">{title}</h3>
                   <p className="mt-4 text-sm leading-7 text-muted">{text}</p>
                 </motion.article>
+              ))}
+            </div>
+
+            <div className="mt-4 grid gap-4 md:grid-cols-2" aria-label="Legacy of Mind trailers">
+              {trailerLinks.map((link) => (
+                <HomeLinkCard key={link.title} link={link} />
               ))}
             </div>
           </div>

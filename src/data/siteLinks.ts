@@ -8,6 +8,8 @@ export const siteLinks = {
   steam: 'https://store.steampowered.com/app/4763910/Legacy_of_Mind/',
   discord: 'https://discord.com/invite/RQTzKEXrY7',
   trailer: 'https://youtu.be/iPgmdf9mY8Y',
+  finalCall: 'https://youtu.be/LmJ6_85m7zc',
+  trailerTwo: 'https://youtu.be/Tg5OPn6txK8',
   youtube: 'https://www.youtube.com/@solusstudiosLoM',
   tiktok: 'https://www.tiktok.com/@legacyofminddev?is_from_webapp=1&sender_device=pc',
   instagram: 'https://www.instagram.com/legacyofminddev/',

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CalendarDays, KeyRound } from 'lucide-react';
+import { CalendarDays, KeyRound, PlayCircle } from 'lucide-react';
 import { siteLinks, socialLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
 import { SteamIcon } from './PlatformIcons';
@@ -61,6 +61,15 @@ export function Hero() {
               className="min-h-16 w-full px-6 py-4 text-sm sm:text-base"
             >
               Join the Closed Beta
+            </CTAButton>
+            <CTAButton
+              href={siteLinks.trailer}
+              external
+              variant="youtube"
+              icon={PlayCircle}
+              className="min-h-16 w-full px-6 py-4 text-sm sm:col-span-2 sm:text-base"
+            >
+              Watch OFFICIAL Trailer
             </CTAButton>
           </div>
 
