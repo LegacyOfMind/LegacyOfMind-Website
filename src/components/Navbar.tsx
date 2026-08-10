@@ -11,7 +11,6 @@ const socialHoverClasses = {
   tiktok: 'hover:border-[#36d4d0]/45 hover:text-[#bdf4f2] hover:shadow-[0_0_18px_rgba(54,212,208,0.12)]',
   instagram: 'hover:border-[#b45a7c]/50 hover:text-[#e0afc0] hover:shadow-[0_0_18px_rgba(180,90,124,0.12)]',
   x: 'hover:border-stone/55 hover:text-stone hover:shadow-[0_0_18px_rgba(217,215,204,0.12)]',
-  reddit: 'hover:border-[#b87555]/45 hover:text-[#e1b79d] hover:shadow-[0_0_18px_rgba(184,117,85,0.12)]',
 };
 
 export function Navbar() {
@@ -34,8 +33,10 @@ export function Navbar() {
       <nav aria-label="Primary navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
         <Link to="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
-            src="/assets/logos/LoM Logo.png"
+            src="/assets/logos/lom-mark-128.png"
             alt="Legacy of Mind mark"
+            width="128"
+            height="128"
             className="h-10 w-10 object-contain"
           />
           <span className="hidden whitespace-nowrap font-display text-sm uppercase tracking-[0.28em] text-stone sm:inline">

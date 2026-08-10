@@ -1,143 +1,86 @@
-import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { LockKeyhole, Youtube } from 'lucide-react';
-import type { PointerEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { siteLinks } from '../data/siteLinks';
+import { motion } from 'framer-motion';
+import { CalendarDays, KeyRound } from 'lucide-react';
+import { siteLinks, socialLinks } from '../data/siteLinks';
 import { CTAButton } from './CTAButton';
-import { DiscordIcon } from './DiscordIcon';
 import { SteamIcon } from './PlatformIcons';
 
+const socialHoverClasses = {
+  discord: 'hover:border-[#8791ff]/55 hover:text-[#c5caff] hover:shadow-[0_0_30px_rgba(88,101,242,0.16)]',
+  youtube: 'hover:border-[#c34b4b]/55 hover:text-[#f0b4b4] hover:shadow-[0_0_30px_rgba(190,44,44,0.14)]',
+  tiktok: 'hover:border-[#36d4d0]/45 hover:text-[#bdf4f2] hover:shadow-[0_0_30px_rgba(54,212,208,0.1)]',
+  instagram: 'hover:border-[#d18aa5]/45 hover:text-[#e0afc0] hover:shadow-[0_0_30px_rgba(180,90,124,0.11)]',
+  x: 'hover:border-stone/55 hover:text-stone hover:shadow-[0_0_30px_rgba(217,215,204,0.1)]',
+};
+
 export function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 700], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 680], [1, 0.35]);
-  const reduceMotion = useReducedMotion();
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const cursorX = useMotionValue(-1000);
-  const cursorY = useMotionValue(-1000);
-  const cursorOpacity = useMotionValue(0);
-  const auraX = useSpring(useTransform(pointerX, [-1, 1], [-28, 28]), { stiffness: 42, damping: 24, mass: 0.8 });
-  const auraY = useSpring(useTransform(pointerY, [-1, 1], [-18, 18]), { stiffness: 42, damping: 24, mass: 0.8 });
-  const mistX = useSpring(useTransform(pointerX, [-1, 1], [18, -18]), { stiffness: 34, damping: 28, mass: 1 });
-  const mistY = useSpring(useTransform(pointerY, [-1, 1], [12, -12]), { stiffness: 34, damping: 28, mass: 1 });
-  const cursorAuraX = useSpring(cursorX, { stiffness: 92, damping: 30, mass: 0.35 });
-  const cursorAuraY = useSpring(cursorY, { stiffness: 92, damping: 30, mass: 0.35 });
-  const cursorAuraOpacity = useSpring(cursorOpacity, { stiffness: 70, damping: 28, mass: 0.4 });
-
-  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
-    if (reduceMotion) {
-      return;
-    }
-
-    const rect = event.currentTarget.getBoundingClientRect();
-    pointerX.set(((event.clientX - rect.left) / rect.width - 0.5) * 2);
-    pointerY.set(((event.clientY - rect.top) / rect.height - 0.5) * 2);
-    cursorX.set(event.clientX - rect.left);
-    cursorY.set(event.clientY - rect.top);
-    cursorOpacity.set(1);
-  };
-
-  const handlePointerLeave = () => {
-    pointerX.set(0);
-    pointerY.set(0);
-    cursorOpacity.set(0);
-  };
-
   return (
-    <section
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      className="hero-void relative isolate flex min-h-[118svh] items-start justify-center overflow-hidden px-4 pb-20 pt-24 md:min-h-[124svh]"
-    >
-      <div aria-hidden="true" className="hero-void-base pointer-events-none absolute inset-0 z-0" />
-      <motion.div
-        aria-hidden="true"
-        style={{ x: auraX, y: auraY }}
-        className="hero-reactive-aura pointer-events-none absolute left-1/2 top-[36vh] z-[1] h-[60rem] w-[60rem] -ml-[30rem] -mt-[30rem]"
-      />
-      <motion.div
-        aria-hidden="true"
-        style={{ x: mistX, y: mistY }}
-        className="hero-mist-orbit pointer-events-none absolute left-1/2 top-[47vh] z-[2] h-[44rem] w-[90rem] -ml-[45rem] -mt-[22rem]"
-      />
-      <div aria-hidden="true" className="hero-ether-field pointer-events-none absolute inset-0 z-[3]" />
-      <div aria-hidden="true" className="hero-lattice-thread pointer-events-none absolute inset-0 z-[4]" />
-      <div aria-hidden="true" className="hero-ash-field pointer-events-none absolute inset-0 z-[5]" />
-      <motion.div
-        aria-hidden="true"
-        style={{ left: cursorAuraX, top: cursorAuraY, opacity: cursorAuraOpacity }}
-        className="hero-cursor-aura pointer-events-none absolute z-[6]"
-      />
-      <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-screen items-center justify-center">
-        <picture>
-          <source srcSet="/assets/images/home/new-thumbnail.webp" type="image/webp" />
-          <img
-            src="/assets/images/home/new-thumbnail.png"
-            alt=""
-            width="1682"
-            height="935"
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-            className="h-auto w-[min(1540px,96vw)] animate-breathe object-contain opacity-70 drop-shadow-[0_0_60px_rgba(217,215,204,0.08)]"
-          />
-        </picture>
-      </motion.div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-20 h-screen bg-[radial-gradient(circle_at_50%_36%,rgba(230,230,220,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.82)_86%)]" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[42vh] bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.76)_26%,rgba(0,0,0,0.98)_100%)]" />
-      <div aria-hidden="true" className="hero-front-haze pointer-events-none absolute inset-0 z-30" />
-      <div aria-hidden="true" className="hero-edge-vignette pointer-events-none absolute inset-0 z-30" />
+    <section className="home-hero relative isolate flex min-h-[100svh] items-center overflow-hidden px-4 pb-14 pt-28 lg:px-6 lg:pb-16">
+      <div className="home-hero-depth pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="home-hero-mist pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="home-hero-rift pointer-events-none absolute inset-y-0 left-1/2 w-px" aria-hidden="true" />
 
       <motion.div
-        initial={{ opacity: 0, y: 28 }}
+        initial={{ opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: 'easeOut' }}
-        className="relative z-40 mx-auto flex w-full max-w-5xl flex-col items-center text-center"
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="relative z-10 mx-auto w-full max-w-7xl"
       >
-        <div aria-hidden="true" className="h-[13vh] min-h-20 md:h-[16vh]" />
-        <p className="relative -translate-y-8 max-w-4xl text-[0.8rem] font-bold uppercase leading-7 tracking-[0.24em] text-stone/95 drop-shadow-[0_0_18px_rgba(217,215,204,0.38),0_10px_24px_rgba(0,0,0,0.95)] sm:text-sm sm:tracking-[0.3em] md:-translate-y-12 md:text-lg md:tracking-[0.34em]">
-          THE FIRST INDIE FPS HORROR SOULSLIKE
-        </p>
-        <div className="mt-[44vh] w-full md:mt-[48vh]">
-          <p className="mx-auto max-w-2xl font-display text-2xl leading-9 tracking-[0.08em] text-stone/90 drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)] md:text-3xl">
-            Survive the nightmares that learned to hunt.
+        <div className="max-w-5xl">
+          <div className="inline-flex min-h-11 items-center gap-3 border border-[var(--color-earth)]/30 bg-black/45 px-4 py-2 text-xs font-semibold uppercase text-[var(--color-parchment)] shadow-[0_0_34px_rgba(182,161,118,0.08)] backdrop-blur-sm sm:text-sm">
+            <CalendarDays aria-hidden="true" className="h-4 w-4 shrink-0" />
+            <span>Releasing Halloween 2026</span>
+          </div>
+
+          <p className="mt-7 text-sm font-semibold uppercase text-stone/72 sm:text-base">
+            Solo-developed indie horror FPS
           </p>
-          <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="w-full sm:w-auto">
-              Wishlist Now on Steam
+          <h1 className="home-hero-title mt-3 font-display text-5xl font-semibold uppercase leading-[0.95] text-stone sm:text-7xl lg:text-8xl xl:text-9xl">
+            Legacy <span className="block text-[var(--color-parchment)]">of Mind</span>
+          </h1>
+          <p className="mt-6 font-display text-xl uppercase text-stone/88 sm:text-2xl lg:text-3xl">
+            One of the first FPS soulslikes
+          </p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
+            Enter a handmade post-apocalyptic world where first-person combat, survival pressure, weapon customisation, and nightmare boss encounters collide.
+          </p>
+
+          <div className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-2 sm:gap-4">
+            <CTAButton
+              href={siteLinks.steam}
+              external
+              variant="steam"
+              icon={SteamIcon}
+              className="min-h-16 w-full px-6 py-4 text-sm sm:text-base"
+            >
+              Wishlist on Steam
             </CTAButton>
-            <CTAButton href={siteLinks.discord} external variant="discord" icon={DiscordIcon} className="w-full sm:w-auto">
-              Playtest Now
+            <CTAButton
+              href="/closed-beta"
+              variant="discord"
+              icon={KeyRound}
+              className="min-h-16 w-full px-6 py-4 text-sm sm:text-base"
+            >
+              Join the Closed Beta
             </CTAButton>
           </div>
-          <p className="mx-auto mt-5 max-w-3xl text-sm font-medium leading-7 text-stone/80 md:text-base">
-            Our Discord welcomes casual players, soulslike fans, indie devs seeking advice, creators growing their audience, and anyone who wants to playtest or share what they are building.
-            <br className="hidden sm:block" />
-            <Link to="/closed-beta" className="text-[var(--color-parchment)] underline decoration-stone/30 underline-offset-4 transition hover:text-stone">
-              Read more about Closed Beta access.
-            </Link>
+
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-stone/65">
+            Wishlist before Steam Next Fest this October, or join the playtest community for Closed Beta news and a chance to help shape the final experience.
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <CTAButton
-              href={siteLinks.trailer}
-              external
-              variant="youtube"
-              icon={Youtube}
-              className="min-h-14 w-full px-5 py-3.5 text-xs sm:w-auto sm:px-7 md:text-sm"
-            >
-              Watch Official Story Trailer
-            </CTAButton>
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              aria-label="Official Gameplay Trailer coming soon"
-              className="inline-flex min-h-14 w-full cursor-not-allowed items-center justify-center gap-2.5 border border-stone/20 bg-white/[0.025] px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted/70 opacity-60 shadow-[inset_0_0_22px_rgba(217,215,204,0.025)] sm:w-auto sm:px-7 md:text-sm"
-            >
-              <LockKeyhole aria-hidden="true" className="h-4 w-4 shrink-0" />
-              <span>Gameplay Trailer Coming Soon</span>
-            </button>
+
+          <div className="mt-7 flex flex-wrap gap-2" aria-label="Follow Legacy of Mind">
+            {socialLinks.map(({ label, href, icon: Icon, platform }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group inline-flex min-h-11 items-center gap-2 border border-stone/16 bg-black/35 px-3.5 py-2 text-xs font-semibold uppercase text-muted backdrop-blur-sm transition duration-300 ${socialHoverClasses[platform]}`}
+              >
+                <Icon aria-hidden="true" className="h-4 w-4 shrink-0 transition duration-300 group-hover:-translate-y-0.5" />
+                <span>{label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </motion.div>

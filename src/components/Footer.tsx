@@ -11,7 +11,15 @@ export function Footer() {
     <footer className="relative z-10 border-t border-border bg-black px-4 py-12 lg:px-6">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_0.95fr_1.1fr]">
         <div>
-          <img src="/assets/logos/LoM Text Logo.png" alt="Legacy of Mind" className="h-auto w-64 max-w-full object-contain" />
+          <img
+            src="/assets/logos/LoM Only Text.png"
+            alt="Legacy of Mind"
+            width="2098"
+            height="749"
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-72 max-w-full object-contain"
+          />
           <p className="mt-5 max-w-sm text-muted">Survive the nightmares that learned to hunt.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <CTAButton href={siteLinks.steam} external variant="steam" icon={SteamIcon} className="min-h-10 px-4 py-2 text-xs">

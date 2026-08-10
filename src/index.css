@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -130,6 +128,91 @@ a {
     radial-gradient(ellipse at 50% 33%, rgba(217, 215, 204, 0.075), transparent 34%),
     radial-gradient(ellipse at 50% 76%, rgba(182, 161, 118, 0.055), transparent 40%),
     linear-gradient(180deg, #010101 0%, #050505 52%, #020202 100%);
+}
+
+.home-hero {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.72) 78%),
+    radial-gradient(ellipse at 22% 42%, rgba(211, 201, 176, 0.1), transparent 34%),
+    radial-gradient(ellipse at 62% 18%, rgba(102, 114, 126, 0.09), transparent 28%),
+    linear-gradient(180deg, #020202 0%, #070707 58%, #020202 100%);
+}
+
+.home-hero-depth {
+  opacity: 0.48;
+  background-image:
+    linear-gradient(118deg, transparent 0 46%, rgba(182, 161, 118, 0.08) 46.08% 46.2%, transparent 46.28% 100%),
+    linear-gradient(62deg, transparent 0 64%, rgba(217, 215, 204, 0.045) 64.08% 64.18%, transparent 64.26% 100%);
+  background-position: 0 0, 140px 80px;
+  background-size: 720px 720px, 620px 620px;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.32) 72%, transparent);
+  animation: home-depth-drift 34s ease-in-out infinite;
+}
+
+.home-hero-mist {
+  inset: -20%;
+  opacity: 0.38;
+  filter: blur(46px);
+  background:
+    radial-gradient(ellipse at 20% 42%, rgba(217, 215, 204, 0.15), transparent 27%),
+    radial-gradient(ellipse at 54% 58%, rgba(103, 113, 121, 0.12), transparent 32%),
+    radial-gradient(ellipse at 32% 80%, rgba(182, 161, 118, 0.08), transparent 26%);
+  animation: home-mist-drift 20s ease-in-out infinite;
+}
+
+.home-hero-rift {
+  opacity: 0.28;
+  background: linear-gradient(180deg, transparent 8%, rgba(217, 215, 204, 0.25) 36%, rgba(182, 161, 118, 0.18) 58%, transparent 88%);
+  box-shadow: 0 0 46px 8px rgba(217, 215, 204, 0.06);
+  transform: rotate(8deg);
+}
+
+.home-hero-title {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 55px rgba(0, 0, 0, 0.95),
+    0 0 52px rgba(217, 215, 204, 0.08);
+  animation: home-title-breathe 7s ease-in-out infinite;
+}
+
+.home-now {
+  background:
+    linear-gradient(180deg, rgba(4, 4, 4, 0.82), rgba(10, 9, 8, 0.9)),
+    radial-gradient(ellipse at 74% 42%, rgba(182, 161, 118, 0.08), transparent 40%);
+}
+
+.home-now-glow {
+  opacity: 0.55;
+  background:
+    linear-gradient(126deg, transparent 0 62%, rgba(182, 161, 118, 0.07) 62.1% 62.25%, transparent 62.35%),
+    radial-gradient(ellipse at 78% 38%, rgba(217, 215, 204, 0.07), transparent 34%);
+}
+
+@keyframes home-depth-drift {
+  0%, 100% {
+    transform: translate3d(-1%, 0, 0);
+  }
+  50% {
+    transform: translate3d(1.5%, -1%, 0);
+  }
+}
+
+@keyframes home-mist-drift {
+  0%, 100% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, -1.5%, 0) scale(1.04);
+  }
+}
+
+@keyframes home-title-breathe {
+  0%, 100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .hero-void-base {
@@ -348,6 +431,31 @@ select.form-field option {
 }
 
 @media (max-width: 640px) {
+  .home-hero-depth {
+    opacity: 0.28;
+    animation: none;
+  }
+
+  .home-hero-mist {
+    opacity: 0.22;
+    filter: blur(30px);
+  }
+
+  .home-hero-rift {
+    opacity: 0.16;
+  }
+
+  .ambient-dust-b,
+  .lattice-field-b {
+    display: none;
+  }
+
+  .particle-field,
+  .ambient-dust,
+  .lattice-field {
+    opacity: 0.16;
+  }
+
   .hero-reactive-aura {
     opacity: 0.46;
     filter: blur(18px);
@@ -403,6 +511,12 @@ select.form-field option {
   .hero-lattice-thread,
   .hero-ash-field,
   .hero-front-haze {
+    animation: none !important;
+  }
+
+  .home-hero-depth,
+  .home-hero-mist,
+  .home-hero-title {
     animation: none !important;
   }
 

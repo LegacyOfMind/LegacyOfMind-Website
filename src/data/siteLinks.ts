@@ -1,18 +1,17 @@
 import { Instagram, Youtube } from 'lucide-react';
 import type { ComponentType, SVGProps } from 'react';
 import { DiscordIcon } from '../components/DiscordIcon';
-import { RedditIcon, TikTokIcon, XIcon } from '../components/PlatformIcons';
+import { TikTokIcon, XIcon } from '../components/PlatformIcons';
 
 // Replace these placeholder URLs when the live pages are ready.
 export const siteLinks = {
   steam: 'https://store.steampowered.com/app/4763910/Legacy_of_Mind/',
   discord: 'https://discord.com/invite/RQTzKEXrY7',
   trailer: 'https://youtu.be/iPgmdf9mY8Y',
-  youtube: 'https://youtu.be/iPgmdf9mY8Y',
+  youtube: 'https://www.youtube.com/@solusstudiosLoM',
   tiktok: 'https://www.tiktok.com/@legacyofminddev?is_from_webapp=1&sender_device=pc',
   instagram: 'https://www.instagram.com/legacyofminddev/',
   x: 'https://x.com/LegacyofMinddev',
-  reddit: 'https://www.reddit.com/r/LegacyofMind/',
   contactEmail: 'danny@solusstudios.uk',
   contactPhone: '07484635564',
   contactPhoneHref: 'tel:+447484635564',
@@ -35,7 +34,7 @@ export type SocialLink = {
   label: string;
   href: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
-  platform: 'discord' | 'youtube' | 'tiktok' | 'instagram' | 'x' | 'reddit';
+  platform: 'discord' | 'youtube' | 'tiktok' | 'instagram' | 'x';
   description: string;
 };
 
@@ -75,12 +74,5 @@ export const socialLinks: SocialLink[] = [
     icon: XIcon,
     platform: 'x',
     description: 'Follow quick updates and development posts',
-  },
-  {
-    label: 'Reddit',
-    href: siteLinks.reddit,
-    icon: RedditIcon,
-    platform: 'reddit',
-    description: 'Join the Legacy of Mind subreddit',
   },
 ];
